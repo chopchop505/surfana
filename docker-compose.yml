@@ -1,0 +1,67 @@
+version: "3"
+
+services:
+  app-north-shore:
+    depends_on:
+      - loki
+      - prometheus
+    build: ./app
+    ports:
+      - "3001:3001"
+    environment:
+      - CLOCK_SPEED=1000
+      - SUB_REGION_ID=58581a836630e24c44878fcb
+    networks:
+      - prometheus-loki-app
+      - internet
+
+  loki:
+    image: grafana/loki:v1.3.0
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - grafana-loki
+      - prometheus-loki-app
+
+  prometheus:
+    image: prom/prometheus:v2.15.2
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus:/app.cfg
+    networks:
+      - world
+      - prometheus-loki-app
+      - grafana-prometheus
+    command: >-
+      --config.file=/app.cfg/prometheus.yml
+      --storage.tsdb.path=/prometheus
+      --web.console.libraries=/usr/share/prometheus/console_libraries
+      --web.console.templates=/usr/share/prometheus/consoles
+
+  grafana:
+    depends_on:
+      - loki
+    image: grafana/grafana:6.6.1
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: test
+      GF_PATHS_PROVISIONING: "/app.cfg/provisioning"
+    volumes:
+      - ./grafana:/app.cfg
+    networks:
+      - world
+      - grafana-loki
+      - grafana-prometheus
+
+networks:
+  world:
+  grafana-loki:
+    internal: true
+  grafana-prometheus:
+    internal: true
+  prometheus-loki-app:
+    internal: true
+  internet:
+    driver: bridge
