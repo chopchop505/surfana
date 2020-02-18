@@ -1,13 +1,18 @@
 version: "3"
 
 services:
+  # Run 1 app for each subregion
+  # North Shore, Hawaii
   app-north-shore:
     depends_on:
       - loki
       - prometheus
+      - promtail
     build: ./app
     ports:
       - "3001:3001"
+    volumes:
+      - north-shore-logs:/var/log/
     environment:
       - CLOCK_SPEED=1000
       - SUB_REGION_ID=58581a836630e24c44878fcb
@@ -15,6 +20,49 @@ services:
       - prometheus-loki-app
       - internet
 
+  # North Orange County, California
+  app-north-orange-county:
+    depends_on:
+      - loki
+      - prometheus
+      - promtail
+    build: ./app
+    ports:
+      - "3002:3001"
+    volumes:
+      - north-shore-logs:/var/log/
+    environment:
+      - CLOCK_SPEED=1000
+      - SUB_REGION_ID=58581a836630e24c44878fd6
+    networks:
+      - prometheus-loki-app
+      - internet
+
+  # Run 1 sidecar promtail for each app
+  # Each app shares a log directory volume with promtail
+  promtail:
+    depends_on:
+        - loki
+    image: grafana/promtail:v1.3.0
+    volumes:
+        - ./promtail/promtail.yml:/etc/promtail/promtail.yaml
+        - north-orange-county-logs:/applogs
+    command: -config.file=/etc/promtail/promtail.yaml
+    networks:
+        - prometheus-loki-app
+
+  promtail:
+    depends_on:
+        - loki
+    image: grafana/promtail:v1.3.0
+    volumes:
+        - ./promtail/promtail.yml:/etc/promtail/promtail.yaml
+        - north-shore-logs:/applogs
+    command: -config.file=/etc/promtail/promtail.yaml
+    networks:
+        - prometheus-loki-app
+
+  # Run 1 loki instance, configured in basic local mode
   loki:
     image: grafana/loki:v1.3.0
     command: -config.file=/etc/loki/local-config.yaml
@@ -22,6 +70,7 @@ services:
       - grafana-loki
       - prometheus-loki-app
 
+  # Run 1 prometheus instance
   prometheus:
     image: prom/prometheus:v2.15.2
     ports:
@@ -38,10 +87,11 @@ services:
       --web.console.libraries=/usr/share/prometheus/console_libraries
       --web.console.templates=/usr/share/prometheus/consoles
 
+  # Run 1 Grafana, with provisioning
   grafana:
     depends_on:
       - loki
-    image: grafana/grafana:6.6.1
+    build: ./grafana
     ports:
       - "3000:3000"
     environment:
@@ -49,7 +99,7 @@ services:
       GF_SECURITY_ADMIN_PASSWORD: test
       GF_PATHS_PROVISIONING: "/app.cfg/provisioning"
     volumes:
-      - ./grafana:/app.cfg
+      - ./grafana/config:/app.cfg
     networks:
       - world
       - grafana-loki
@@ -65,3 +115,7 @@ networks:
     internal: true
   internet:
     driver: bridge
+
+volumes:
+  north-shore-logs:
+  north-orange-county-logs:

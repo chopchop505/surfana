@@ -78,7 +78,9 @@ class SurflineClient {
         spots: _.map(response.data.data.spots, spot => {
           return {
             id: spot._id,
-            name: spot.name
+            name: spot.name,
+            lat: spot.lat,
+            lon: spot.lon,
           }
         }),
       };

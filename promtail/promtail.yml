@@ -15,12 +15,10 @@ scrape_configs:
       - localhost
     labels:
       job: varlogs
-      __path__: /var/log/*log
+      __path__: /applogs/*log
   pipeline_stages:
-  # This stage is only going to run if the scraped target has a label of
-  # "name" with a value of "jaeger-agent".
   - match:
-      selector: '{filename="/var/log/subregion.log"}'
+      selector: '{filename="/var/log/app.log"}'
       stages:
       # The JSON stage reads the log line as a JSON string and extracts
       # the expressions fields from the object for use in further stages.

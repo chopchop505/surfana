@@ -16,6 +16,7 @@ class GaugeFactory {
       labelNames: [
         'spotId',
         'spotName',
+        'spotGeohash',
         'subregionId',
         'subregionName',
       ].concat(labelNames)

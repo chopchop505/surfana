@@ -15,11 +15,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# Install Promtail
-RUN curl -O -L "https://github.com/grafana/loki/releases/download/v1.3.0/promtail-linux-amd64.zip"
-RUN unzip "promtail-linux-amd64.zip"
-RUN chmod a+x "promtail-linux-amd64"
-COPY ./promtail/app-config.yml /etc/promtail/app-config.yaml
-
 EXPOSE 3001
 CMD [ "bash", "./bin/start.sh"]

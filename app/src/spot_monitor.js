@@ -3,6 +3,7 @@
 const promClient = require('prom-client');
 const _ = require('lodash');
 const moment = require('moment');
+const ngeohash = require('ngeohash');
 
 const Surfline = require('./surfline_api');
 
@@ -17,6 +18,7 @@ const Logger = require('./util/logger');
 
 class SpotMonitor {
   constructor(params = null) {
+    console.dir(params)
     this.spotId = params.spotId;
     this.spotName = params.spotName;
 
@@ -26,9 +28,13 @@ class SpotMonitor {
     this.daysToForecast = params.daysToForecast || 5;
     this.intervalHours = params.intervalHours || 1;
 
+    this.spotLat = params.spotLat;
+    this.spotLon = params.spotLon;
+
     this.globalLabels = {
       spotId: this.spotId,
       spotName: this.spotName,
+      spotGeohash: ngeohash.encode(this.spotLat, this.spotLon),
       subregionId: params.subregionId,
       subregionName: params.subregionName,
     }
@@ -315,6 +321,7 @@ class SpotMonitor {
 
   setGauge(metric, obj, path, labels) {
     let value = _.get(obj, path);
+
     if (!_.isNil(metric) && !_.isNil(value)) {
       metric.set(_.merge({}, this.globalLabels, labels), value);
     }

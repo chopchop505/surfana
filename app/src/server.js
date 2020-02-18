@@ -22,13 +22,15 @@ Surfline.getSubregionInfo({ subregionId }).then((subregion) => {
     const sm = new SpotMonitor({
       spotId: spot.id,
       spotName: spot.name,
+      spotLat: spot.lat,
+      spotLon: spot.lon,
       subregionId: subregion.id,
       subregionName: subregion.name,
     });
 
     setInterval(() => {
       sm.start();
-    }, 5000)
+    }, 10000)
   });
 
   // Define express endpoints
