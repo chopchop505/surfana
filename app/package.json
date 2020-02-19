@@ -10,10 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
+    "axios-mock-adapter": "^1.17.0",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "ngeohash": "^0.6.3",
+    "node-object-hash": "^2.0.0",
     "prom-client": "^11.5.3",
     "surfline-nodejs": "git+https://github.com/kylerberry/surfline-nodejs.git",
     "winston": "^3.2.1"

@@ -30,7 +30,7 @@ Surfline.getSubregionInfo({ subregionId }).then((subregion) => {
 
     setInterval(() => {
       sm.start();
-    }, 10000)
+    }, 5000)
   });
 
   // Define express endpoints

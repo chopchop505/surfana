@@ -18,7 +18,6 @@ const Logger = require('./util/logger');
 
 class SpotMonitor {
   constructor(params = null) {
-    console.dir(params)
     this.spotId = params.spotId;
     this.spotName = params.spotName;
 
@@ -42,6 +41,10 @@ class SpotMonitor {
 
   start() {
     this.forecastConditions();
+    this.forecastWeather();
+    this.forecastTides();
+    this.forecastWeather();
+    this.forecastWind();
   }
 
   forecastConditions() {
@@ -158,7 +161,7 @@ class SpotMonitor {
     })
   }
 
-  forcasetWeather() {
+  forecastWeather() {
     Surfline.forecastWeather({
       spotId: this.spotId,
       days: this.daysToForecast,
@@ -221,7 +224,7 @@ class SpotMonitor {
     })
   }
 
-  forcasetWind() {
+  forecastWind() {
     Surfline.forecastWind({
       spotId: this.spotId,
       days: this.daysToForecast,
@@ -263,7 +266,7 @@ class SpotMonitor {
     })
   }
 
-  forcasetWaves() {
+  forecastWaves() {
     Surfline.forecastWaves({
       spotId: this.spotId,
       days: this.daysToForecast,
