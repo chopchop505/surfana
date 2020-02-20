@@ -4,10 +4,12 @@ const promClient = require('prom-client');
 const _ = require('lodash');
 const moment = require('moment');
 const ngeohash = require('ngeohash');
+const util = require('util');
 
 const Surfline = require('./surfline_api');
 
 const ConditionsMetrics = require('./metrics/conditions_metrics');
+const LocationMetrics = require('./metrics/location_metrics');
 const TideMetrics = require('./metrics/tide_metrics');
 const WaveMetrics = require('./metrics/wave_metrics');
 const WeatherMetrics = require('./metrics/weather_metrics');
@@ -15,6 +17,7 @@ const WindMetrics = require('./metrics/wind_metrics');
 
 const AcceleratedTime = require('./util/accelerated_time');
 const Logger = require('./util/logger');
+const CameraStore = require('./db/camera_store');
 
 class SpotMonitor {
   constructor(params = null) {
@@ -30,6 +33,8 @@ class SpotMonitor {
     this.spotLat = params.spotLat;
     this.spotLon = params.spotLon;
 
+    this.cameras = params.cameras;
+
     this.globalLabels = {
       spotId: this.spotId,
       spotName: this.spotName,
@@ -37,14 +42,23 @@ class SpotMonitor {
       subregionId: params.subregionId,
       subregionName: params.subregionName,
     }
+
+    // Static data
+    // Insert a dummy metric, so we dont have to rely on other metrics to use the global geohash label
+    this.setGauge(LocationMetrics.LOCATION, { value: 1 }, 'value');
+
+    // Insert Camera info in Postgres, so we can extract the camera urls in Grafana
+    this.cameras.forEach(camera => {
+      CameraStore.insert(camera, { id: this.spotId, name: this.spotName });
+    })
   }
 
   start() {
     this.forecastConditions();
-    this.forecastWeather();
-    this.forecastTides();
-    this.forecastWeather();
-    this.forecastWind();
+    //this.forecastWeather();
+    //this.forecastTides();
+    //this.forecastWeather();
+    //this.forecastWind();
   }
 
   forecastConditions() {
@@ -101,6 +115,7 @@ class SpotMonitor {
       if (_.get(data, 'data.data.conditions')) {
         // Only store the conditions based on the closest time period
         const conditions = findClosetDataPoint(data.data.data.conditions, -12, 12);
+        Logger.debug(util.inspect(conditions, {showHidden: false, depth: null}))
         if (conditions) {
           this.setGauge(ConditionsMetrics.SURF_HEIGHT_MAX, conditions.am, 'maxHeight', { timeBlock: 'am' });
           this.setGauge(ConditionsMetrics.SURF_HEIGHT_MIN, conditions.am, 'minHeight', { timeBlock: 'am' });
@@ -113,8 +128,17 @@ class SpotMonitor {
           this.setLoki(conditions, 'observation', { commentaryType: 'tide_type', commentator: conditions.forecaster.name });
           this.setLoki(conditions, 'am.humanRelation', { timeBlock: 'am', commentaryType: 'human_relation', commentator: conditions.forecaster.name });
           this.setLoki(conditions, 'pm.humanRelation', { timeBlock: 'pm', commentaryType: 'human_relation', commentator: conditions.forecaster.name });
-          this.setLoki(conditions, 'am.rating', { timeBlock: 'am', commentaryType: 'rating', commentator: conditions.forecaster.name });
-          this.setLoki(conditions, 'pm.rating', { timeBlock: 'pm', commentaryType: 'rating', commentator: conditions.forecaster.name });
+
+          let amRating = _.get(conditions, 'am.rating');
+          let pmRating = _.get(conditions, 'pm.rating');
+          if (amRating) {
+            this.setLoki(conditions, 'am.rating', { timeBlock: 'am', commentaryType: 'rating', commentator: conditions.forecaster.name });
+            this.setGauge(ConditionsMetrics.SURF_RATING, { value: normalizeRating(amRating) }, 'value', { timeBlock: 'am' });
+          }
+          if (pmRating) {
+            this.setLoki(conditions, 'pm.rating', { timeBlock: 'pm', commentaryType: 'rating', commentator: conditions.forecaster.name });
+            this.setGauge(ConditionsMetrics.SURF_RATING, { value: normalizeRating(pmRating) }, 'value', { timeBlock: 'pm' });
+          }
         }
       }
     })
@@ -153,6 +177,7 @@ class SpotMonitor {
       if (_.get(data, 'data.data.tides')) {
         // Only store the conditions based on the closest time period
         const tide = findClosetDataPoint(data.data.data.tides);
+        Logger.debug(util.inspect(tide, {showHidden: false, depth: null}))
         if (tide) {
           this.setGauge(TideMetrics.TEMPERATURE, tide, 'height');
           this.setLoki(tide, 'tide', { commentaryType: 'tide_type' });
@@ -257,10 +282,12 @@ class SpotMonitor {
       if (_.get(data, 'data.data.wind')) {
         // Only store the conditions based on the closest time period
         const wind = findClosetDataPoint(data.data.data.wind);
+        Logger.debug(util.inspect(wind, {showHidden: false, depth: null}))
         if (wind) {
           this.setGauge(WindMetrics.WIND_SPEED, wind, 'speed');
           this.setGauge(WindMetrics.WIND_DIRECTION, wind, 'direction');
           this.setGauge(WindMetrics.WIND_GUST, wind, 'gust');
+          this.setGauge(WindMetrics.WIND_SCORE, wind, 'optimalScore');
         }
       }
     })
@@ -305,9 +332,12 @@ class SpotMonitor {
       if (_.get(data, 'data.data.wave')) {
         // Only store the conditions based on the closest time period
         const wave = findClosetDataPoint(data.data.data.wave);
+        Logger.debug(util.inspect(wave, {showHidden: false, depth: null}))
+
         if (wave) {
           this.setGauge(WaveMetrics.SURF_HEIGHT_MIN, wave, 'surf.min');
           this.setGauge(WaveMetrics.SURF_HEIGHT_MAX, wave, 'surf.max');
+          this.setGauge(WaveMetrics.SURF_HEIGHT_SCORE, wave, 'surf.optimalScore');
           wave.swells.forEach((swell, index) => {
             if (swell.height) {
               let labels = { swellId: index };
@@ -315,6 +345,8 @@ class SpotMonitor {
               this.setGauge(WaveMetrics.SWELL_PERIOD, swell, 'period', labels);
               this.setGauge(WaveMetrics.SWELL_DIRECTION_MIN, swell, 'directionMin', labels);
               this.setGauge(WaveMetrics.SWELL_DIRECTION_MAX, swell, 'direction', labels);
+              this.setGauge(WaveMetrics.SWELL_DIRECTION_SCORE, swell, 'optimalScore', labels);
+
             }
           });
         }
@@ -352,4 +384,31 @@ function findClosetDataPoint(array, min = 0, max = 1) {
   })
 }
 
+function normalizeRating(string) {
+  switch(string) {
+    case 'POOR':
+      return 1;
+      break;
+    case 'POOR_TO_FAIR':
+      return 2;
+      break;
+    case 'FAIR':
+      return 3;
+      break;
+    case 'FAIR_TO_GOOD':
+      return 4;
+      break;
+    case 'GOOD':
+      return 5;
+      break;
+    case 'GOOD_TO_EPIC':
+      return 6;
+      break;
+    case 'EPIC':
+      return 7
+      break;
+    default:
+      throw new Exception('Unknown Rating: ' + rating);
+  }
+}
 module.exports = SpotMonitor;

@@ -3,6 +3,7 @@
 const express = require('express');
 const promClient = require('prom-client');
 const register = promClient.register;
+const util = require('util')
 
 const AcceleratedTime = require('./util/accelerated_time');
 const Logger = require('./util/logger');
@@ -19,6 +20,7 @@ Surfline.getSubregionInfo({ subregionId }).then((subregion) => {
 
   subregion.spots.forEach(spot => {
     Logger.info(`Monitoring spot: ${spot.name}`);
+
     const sm = new SpotMonitor({
       spotId: spot.id,
       spotName: spot.name,
@@ -26,9 +28,10 @@ Surfline.getSubregionInfo({ subregionId }).then((subregion) => {
       spotLon: spot.lon,
       subregionId: subregion.id,
       subregionName: subregion.name,
+      cameras: spot.cameras,
     });
 
-    setInterval(() => {
+    setTimeout(() => {
       sm.start();
     }, 5000)
   });

@@ -1,0 +1,562 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "iteration": 1582186861243,
+  "links": [],
+  "panels": [
+    {
+      "content": "<h1>Latest Highlight Clip</h1>\n<video height=\"400\" controls autoplay>\n  <source src=\"[[spotCameraRewindClip]]\" type=\"video/mp4\">\nYour browser does not support the video tag.\n</video>\n<br>\n\n<strong>Wanna watch live? Start streaming <a href=\"[[spotCameraStreamUrl]]\" target=\"_blank\">here</a></strong>\n\n\n",
+      "datasource": null,
+      "gridPos": {
+        "h": 13,
+        "w": 11,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "links": [
+        {
+          "title": "",
+          "url": ""
+        }
+      ],
+      "mode": "html",
+      "options": {},
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Highlight Reel",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "content": "<img src=\"[[spotCameraStillUrl]]\"></img>",
+      "datasource": null,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "mode": "html",
+      "options": {},
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Panel Title",
+      "type": "text"
+    }
+  ],
+  "schemaVersion": 22,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "Laniakea",
+          "value": "Laniakea"
+        },
+        "datasource": "prometheus",
+        "definition": "label_values(spotName)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Spot Name",
+        "multi": false,
+        "name": "spotName",
+        "options": [
+          {
+            "selected": false,
+            "text": "17th St.",
+            "value": "17th St."
+          },
+          {
+            "selected": false,
+            "text": "36th St.",
+            "value": "36th St."
+          },
+          {
+            "selected": false,
+            "text": "40th St.",
+            "value": "40th St."
+          },
+          {
+            "selected": false,
+            "text": "54th St.",
+            "value": "54th St."
+          },
+          {
+            "selected": false,
+            "text": "56th St.",
+            "value": "56th St."
+          },
+          {
+            "selected": false,
+            "text": "56th Street Close-up",
+            "value": "56th Street Close-up"
+          },
+          {
+            "selected": false,
+            "text": "Anderson St.",
+            "value": "Anderson St."
+          },
+          {
+            "selected": false,
+            "text": "Anderson St. Overview",
+            "value": "Anderson St. Overview"
+          },
+          {
+            "selected": false,
+            "text": "Backdoor",
+            "value": "Backdoor"
+          },
+          {
+            "selected": false,
+            "text": "Backdoor Overview",
+            "value": "Backdoor Overview"
+          },
+          {
+            "selected": false,
+            "text": "Blackies",
+            "value": "Blackies"
+          },
+          {
+            "selected": false,
+            "text": "Blackies Close-up",
+            "value": "Blackies Close-up"
+          },
+          {
+            "selected": false,
+            "text": "Bolsa Chica Jetties",
+            "value": "Bolsa Chica Jetties"
+          },
+          {
+            "selected": false,
+            "text": "Bolsa Chica Overview",
+            "value": "Bolsa Chica Overview"
+          },
+          {
+            "selected": false,
+            "text": "Bolsa Chica State Beach",
+            "value": "Bolsa Chica State Beach"
+          },
+          {
+            "selected": false,
+            "text": "Bolsa Chica State Beach N.",
+            "value": "Bolsa Chica State Beach N."
+          },
+          {
+            "selected": false,
+            "text": "Chun's",
+            "value": "Chun's"
+          },
+          {
+            "selected": false,
+            "text": "Corona del Mar",
+            "value": "Corona del Mar"
+          },
+          {
+            "selected": false,
+            "text": "Crystal Cove",
+            "value": "Crystal Cove"
+          },
+          {
+            "selected": false,
+            "text": "Gas Chambers",
+            "value": "Gas Chambers"
+          },
+          {
+            "selected": false,
+            "text": "Goldenwest",
+            "value": "Goldenwest"
+          },
+          {
+            "selected": false,
+            "text": "HB Pier Southside",
+            "value": "HB Pier Southside"
+          },
+          {
+            "selected": false,
+            "text": "HB Pier, Northside",
+            "value": "HB Pier, Northside"
+          },
+          {
+            "selected": false,
+            "text": "HB Pier, Northside Overview",
+            "value": "HB Pier, Northside Overview"
+          },
+          {
+            "selected": false,
+            "text": "HB Pier, Southside Overview",
+            "value": "HB Pier, Southside Overview"
+          },
+          {
+            "selected": false,
+            "text": "HB Southside",
+            "value": "HB Southside"
+          },
+          {
+            "selected": false,
+            "text": "Haleiwa",
+            "value": "Haleiwa"
+          },
+          {
+            "selected": false,
+            "text": "Hultin's",
+            "value": "Hultin's"
+          },
+          {
+            "selected": false,
+            "text": "Huntington St. Overview",
+            "value": "Huntington St. Overview"
+          },
+          {
+            "selected": false,
+            "text": "Huntington State Beach",
+            "value": "Huntington State Beach"
+          },
+          {
+            "selected": false,
+            "text": "Jocko's",
+            "value": "Jocko's"
+          },
+          {
+            "selected": false,
+            "text": "Kaena Point",
+            "value": "Kaena Point"
+          },
+          {
+            "selected": true,
+            "text": "Laniakea",
+            "value": "Laniakea"
+          },
+          {
+            "selected": false,
+            "text": "Laniakea Inside",
+            "value": "Laniakea Inside"
+          },
+          {
+            "selected": false,
+            "text": "Log Cabins",
+            "value": "Log Cabins"
+          },
+          {
+            "selected": false,
+            "text": "Lower Jetties",
+            "value": "Lower Jetties"
+          },
+          {
+            "selected": false,
+            "text": "Mokuleia",
+            "value": "Mokuleia"
+          },
+          {
+            "selected": false,
+            "text": "Newland St.",
+            "value": "Newland St."
+          },
+          {
+            "selected": false,
+            "text": "Newport Beach ",
+            "value": "Newport Beach "
+          },
+          {
+            "selected": false,
+            "text": "Newport Beach Southside",
+            "value": "Newport Beach Southside"
+          },
+          {
+            "selected": false,
+            "text": "Newport Jetties",
+            "value": "Newport Jetties"
+          },
+          {
+            "selected": false,
+            "text": "Newport Pier, Northside",
+            "value": "Newport Pier, Northside"
+          },
+          {
+            "selected": false,
+            "text": "Newport Pier, Southside",
+            "value": "Newport Pier, Southside"
+          },
+          {
+            "selected": false,
+            "text": "Newport Point",
+            "value": "Newport Point"
+          },
+          {
+            "selected": false,
+            "text": "Off-The-Wall",
+            "value": "Off-The-Wall"
+          },
+          {
+            "selected": false,
+            "text": "Pipeline",
+            "value": "Pipeline"
+          },
+          {
+            "selected": false,
+            "text": "Pipeline Overview",
+            "value": "Pipeline Overview"
+          },
+          {
+            "selected": false,
+            "text": "Pua'ena Point",
+            "value": "Pua'ena Point"
+          },
+          {
+            "selected": false,
+            "text": "Ray Bay",
+            "value": "Ray Bay"
+          },
+          {
+            "selected": false,
+            "text": "River Jetties",
+            "value": "River Jetties"
+          },
+          {
+            "selected": false,
+            "text": "River Jetties Overview",
+            "value": "River Jetties Overview"
+          },
+          {
+            "selected": false,
+            "text": "River Jetties South",
+            "value": "River Jetties South"
+          },
+          {
+            "selected": false,
+            "text": "Rockpile",
+            "value": "Rockpile"
+          },
+          {
+            "selected": false,
+            "text": "Rocky Point",
+            "value": "Rocky Point"
+          },
+          {
+            "selected": false,
+            "text": "Rocky Point Lefts",
+            "value": "Rocky Point Lefts"
+          },
+          {
+            "selected": false,
+            "text": "Seal Beach Jetty",
+            "value": "Seal Beach Jetty"
+          },
+          {
+            "selected": false,
+            "text": "Seal Beach Pier, Northside",
+            "value": "Seal Beach Pier, Northside"
+          },
+          {
+            "selected": false,
+            "text": "Seal Beach Pier, Southside",
+            "value": "Seal Beach Pier, Southside"
+          },
+          {
+            "selected": false,
+            "text": "Sunset Beach",
+            "value": "Sunset Beach"
+          },
+          {
+            "selected": false,
+            "text": "Sunset Beach Closeup",
+            "value": "Sunset Beach Closeup"
+          },
+          {
+            "selected": false,
+            "text": "Surfside",
+            "value": "Surfside"
+          },
+          {
+            "selected": false,
+            "text": "The Wedge",
+            "value": "The Wedge"
+          },
+          {
+            "selected": false,
+            "text": "Turtle Bay East",
+            "value": "Turtle Bay East"
+          },
+          {
+            "selected": false,
+            "text": "Turtle Bay West",
+            "value": "Turtle Bay West"
+          },
+          {
+            "selected": false,
+            "text": "Velzyland",
+            "value": "Velzyland"
+          },
+          {
+            "selected": false,
+            "text": "Waimea Bay",
+            "value": "Waimea Bay"
+          },
+          {
+            "selected": false,
+            "text": "Waimea Bay Overview",
+            "value": "Waimea Bay Overview"
+          }
+        ],
+        "query": "label_values(spotName)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "https://camstills.cdn-surfline.com/hi-laniakea/latest_small.jpg",
+          "value": "https://camstills.cdn-surfline.com/hi-laniakea/latest_small.jpg"
+        },
+        "datasource": "postgres",
+        "definition": "select still_url from cameras where spot_name='[[spotName]]'",
+        "hide": 2,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "spotCameraStillUrl",
+        "options": [
+          {
+            "selected": true,
+            "text": "https://camstills.cdn-surfline.com/hi-laniakea/latest_small.jpg",
+            "value": "https://camstills.cdn-surfline.com/hi-laniakea/latest_small.jpg"
+          },
+          {
+            "selected": false,
+            "text": "https://camstills.cdn-surfline.com/hi-laniakeainside/latest_small.jpg",
+            "value": "https://camstills.cdn-surfline.com/hi-laniakeainside/latest_small.jpg"
+          }
+        ],
+        "query": "select still_url from cameras where spot_name='[[spotName]]'",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "https://camrewinds.cdn-surfline.com/hi-laniakea/hi-laniakea.1500.2020-02-19.mp4",
+          "value": "https://camrewinds.cdn-surfline.com/hi-laniakea/hi-laniakea.1500.2020-02-19.mp4"
+        },
+        "datasource": "postgres",
+        "definition": "select rewind_clip from cameras where spot_name='[[spotName]]'",
+        "hide": 2,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "spotCameraRewindClip",
+        "options": [
+          {
+            "selected": true,
+            "text": "https://camrewinds.cdn-surfline.com/hi-laniakea/hi-laniakea.1500.2020-02-19.mp4",
+            "value": "https://camrewinds.cdn-surfline.com/hi-laniakea/hi-laniakea.1500.2020-02-19.mp4"
+          },
+          {
+            "selected": false,
+            "text": "https://camrewinds.cdn-surfline.com/hi-laniakeainside/hi-laniakeainside.1500.2020-02-19.mp4",
+            "value": "https://camrewinds.cdn-surfline.com/hi-laniakeainside/hi-laniakeainside.1500.2020-02-19.mp4"
+          }
+        ],
+        "query": "select rewind_clip from cameras where spot_name='[[spotName]]'",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakea/playlist.m3u8",
+          "value": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakea/playlist.m3u8"
+        },
+        "datasource": "postgres",
+        "definition": "select stream_url from cameras where spot_name='[[spotName]]'",
+        "hide": 2,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "spotCameraStreamUrl",
+        "options": [
+          {
+            "selected": true,
+            "text": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakea/playlist.m3u8",
+            "value": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakea/playlist.m3u8"
+          },
+          {
+            "selected": false,
+            "text": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakeainside/playlist.m3u8",
+            "value": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakeainside/playlist.m3u8"
+          }
+        ],
+        "query": "select stream_url from cameras where spot_name='[[spotName]]'",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Spot Dashboard",
+  "uid": "ouwRz-QWz",
+  "version": 1
+}

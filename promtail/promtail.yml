@@ -18,7 +18,7 @@ scrape_configs:
       __path__: /applogs/*log
   pipeline_stages:
   - match:
-      selector: '{filename="/var/log/app.log"}'
+      selector: '{filename="/applogs/app.log"}'
       stages:
       # The JSON stage reads the log line as a JSON string and extracts
       # the expressions fields from the object for use in further stages.

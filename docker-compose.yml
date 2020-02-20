@@ -8,6 +8,7 @@ services:
       - loki
       - prometheus
       - promtail
+      - postgres
     build: ./app
     ports:
       - "3001:3001"
@@ -16,7 +17,11 @@ services:
     environment:
       - CLOCK_SPEED=1000
       - SUB_REGION_ID=58581a836630e24c44878fcb
+      - PGHOST=postgres
+      - PGPASSWORD=surfana
     networks:
+      - app-postgres
+      - grafana-postgres
       - prometheus-loki-app
       - internet
 
@@ -34,7 +39,11 @@ services:
     environment:
       - CLOCK_SPEED=1000
       - SUB_REGION_ID=58581a836630e24c44878fd6
+      - PGHOST=postgres
+      - PGPASSWORD=surfana
     networks:
+      - app-postgres
+      - grafana-postgres
       - prometheus-loki-app
       - internet
 
@@ -61,6 +70,18 @@ services:
     command: -config.file=/etc/promtail/promtail.yaml
     networks:
         - prometheus-loki-app
+
+  # Run 1 postgres
+  postgres:
+    image: postgres:10.12
+    restart: always
+    volumes:
+      - ./postgres/init-schema-db.sh:/docker-entrypoint-initdb.d/init-schema-db.sh
+    environment:
+      POSTGRES_PASSWORD: surfana
+    networks:
+        - app-postgres
+        - grafana-postgres
 
   # Run 1 loki instance, configured in basic local mode
   loki:
@@ -96,14 +117,17 @@ services:
       - "3000:3000"
     environment:
       GF_SECURITY_ADMIN_USER: admin
-      GF_SECURITY_ADMIN_PASSWORD: test
+      GF_SECURITY_ADMIN_PASSWORD: surfana
       GF_PATHS_PROVISIONING: "/app.cfg/provisioning"
+      GF_PANELS_DISABLE_SANITIZE_HTML: "true"
     volumes:
       - ./grafana/config:/app.cfg
     networks:
       - world
       - grafana-loki
       - grafana-prometheus
+      - grafana-postgres
+
 
 networks:
   world:
@@ -111,7 +135,11 @@ networks:
     internal: true
   grafana-prometheus:
     internal: true
+  grafana-postgres:
+    internal: true
   prometheus-loki-app:
+    internal: true
+  app-postgres:
     internal: true
   internet:
     driver: bridge

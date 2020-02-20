@@ -5,7 +5,7 @@ datasources:
   access: proxy
   type: loki
   url: http://loki:3100
-  isDefault: true
+  isDefault: false
   database: ''
   user: ''
   password: ''
@@ -20,8 +20,22 @@ datasources:
   access: proxy
   type: prometheus
   url: http://prometheus:9090
-  isDefault: false
+  isDefault: true
   orgId: 1
   editable: false
   jsonData:
     timeInterval: 10s
+- name: postgres
+  type: postgres
+  url: postgres:5432
+  database: postgres
+  user: postgres
+  secureJsonData:
+    password: "surfana"
+  jsonData:
+    sslmode: "disable" # disable/require/verify-ca/verify-full
+    maxOpenConns: 0         # Grafana v5.4+
+    maxIdleConns: 2         # Grafana v5.4+
+    connMaxLifetime: 14400  # Grafana v5.4+
+    postgresVersion: 903 # 903=9.3, 904=9.4, 905=9.5, 906=9.6, 1000=10
+    timescaledb: false

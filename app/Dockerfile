@@ -16,4 +16,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3001
-CMD [ "bash", "./bin/start.sh"]
+CMD [ "node", "src/server.js"]

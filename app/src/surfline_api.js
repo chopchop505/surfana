@@ -2,10 +2,11 @@
 
 const URL = require('url');
 const fs = require('fs');
+const util = require('util');
 
 const axios = require('axios')
 const _ = require('lodash');
-const hasher = require('node-object-hash')({sort:true, coerce:true});
+const hasher = require('node-object-hash')({ sort: true, coerce: true });
 
 const FORECAST_URL = 'https://services.surfline.com/kbyg/spots/forecasts';
 const REGION_URL = 'https://services.surfline.com/kbyg/regions/overview';
@@ -28,64 +29,72 @@ if (process.env.OFFLINE) {
 }
 
 class SurflineClient {
-    constructor () {
+  constructor() {
+  }
+
+  async _apiCall(myUrl, params = null) {
+    let response = await axios.get(myUrl, { params });
+
+    // If we are seeding the OFFLINE data, write to disk
+    if (process.env.SEED_OFFLINE) {
+      const dirName = `./data/offline${new URL.URL(myUrl).pathname}`;
+      const fileName = hasher.hash(params)
+
+      await fs.promises.mkdir(`${dirName}`, { recursive: true });
+      await fs.promises.writeFile(`${dirName}/${fileName}`, JSON.stringify(response.data));
     }
 
-    async _apiCall(myUrl, params = null) {
-      let response = await axios.get(myUrl, { params });
+    return response;
+  }
 
-        // If we are seeding the OFFLINE data, write to disk
-      if (process.env.SEED_OFFLINE) {
-        const dirName = `./data/offline${new URL.URL(myUrl).pathname}`;
-        const fileName = hasher.hash(params)
+  forecastOverview(params = null) {
+    return this._apiCall(REGION_URL, params);
+  }
 
-        await fs.promises.mkdir(`${dirName}`, { recursive: true });
-        await fs.promises.writeFile(`${dirName}/${fileName}`, JSON.stringify(response.data));
-      }
+  forecastConditions(params = null) {
+    return this._apiCall(`${FORECAST_URL}/conditions`, params);
+  }
 
-      return response;
-    }
+  forecastWaves(params = null) {
+    return this._apiCall(`${FORECAST_URL}/wave`, params);
+  }
 
-    forecastOverview (params = null) {
-      return this._apiCall(REGION_URL, params);
-    }
+  forecastWind(params = null) {
+    return this._apiCall(`${FORECAST_URL}/wind`, params);
+  }
 
-    forecastConditions (params = null) {
-      return this._apiCall(`${FORECAST_URL}/conditions`, params);
-    }
+  forecastTides(params = null) {
+    return this._apiCall(`${FORECAST_URL}/tides`, params);
+  }
 
-    forecastWaves (params = null) {
-      return this._apiCall(`${FORECAST_URL}/wave`, params);
-    }
+  forecastWeather(params = null) {
+    return this._apiCall(`${FORECAST_URL}/weather`, params);
+  }
 
-    forecastWind (params = null) {
-      return this._apiCall(`${FORECAST_URL}/wind`, params);
-    }
+  async getSubregionInfo(params = null) {
+    let response = await this.forecastOverview(params);
 
-    forecastTides (params = null) {
-      return this._apiCall(`${FORECAST_URL}/tides`, params);
-    }
-
-    forecastWeather(params = null) {
-      return this._apiCall(`${FORECAST_URL}/weather`, params);
-    }
-
-    async getSubregionInfo(params = null) {
-      let response = await this.forecastOverview(params);
-
-      return {
-        id: response.data.data._id,
-        name: response.data.data.name,
-        spots: _.map(response.data.data.spots, spot => {
-          return {
-            id: spot._id,
-            name: spot.name,
-            lat: spot.lat,
-            lon: spot.lon,
-          }
-        }),
-      };
-    }
+    return {
+      id: response.data.data._id,
+      name: response.data.data.name,
+      spots: _.map(response.data.data.spots, spot => {
+        return {
+          id: spot._id,
+          name: spot.name,
+          lat: spot.lat,
+          lon: spot.lon,
+          cameras: _.map(spot.cameras, camera => {
+            return {
+              id: camera._id,
+              streamUrl: camera.streamUrl,
+              stillUrl: camera.stillUrl,
+              rewindClip: camera.rewindClip,
+            }
+          })
+        }
+      }),
+    };
+  }
 
 }
 
