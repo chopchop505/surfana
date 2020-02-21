@@ -8,8 +8,8 @@ class AcceleratedTime {
     this.accelerator = process.env.CLOCK_SPEED || 1;
 
     setInterval(() => {
-      Logger.debug(`Projecting time: ${this.now().format()} to now`)
-    }, 1000);
+      Logger.info(`Projecting time: ${this.now().format()} to now`)
+    }, 5000);
   }
 
   now() {

@@ -15,68 +15,271 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
-  "iteration": 1582167971513,
+  "id": 3,
+  "iteration": 1582319871272,
   "links": [],
   "panels": [
     {
-      "circleMaxSize": "4",
-      "circleMinSize": "4",
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
       "colors": [
-        "#1F60C4",
-        "#37872D",
-        "#FA6400"
+        "rgba(41, 156, 70, 0)",
+        "rgba(250, 100, 0, 0)",
+        "#1F60C4"
       ],
-      "datasource": "prometheus",
-      "decimals": 0,
-      "description": "",
-      "esGeoPoint": "spotGeohash",
-      "esLocationName": "spotName",
-      "esMetric": "Value",
+      "datasource": null,
+      "decimals": null,
+      "format": "short",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
       "gridPos": {
-        "h": 25,
-        "w": 12,
+        "h": 5,
+        "w": 7,
         "x": 0,
         "y": 0
       },
-      "hideEmpty": false,
-      "hideZero": false,
-      "id": 2,
-      "initialZoom": "3",
+      "id": 8,
+      "interval": null,
       "links": [],
-      "locationData": "geohash",
-      "mapCenter": "North America",
-      "mapCenterLatitude": 40,
-      "mapCenterLongitude": -100,
-      "maxDataPoints": 1,
-      "mouseWheelZoom": false,
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
       "options": {},
-      "showLegend": true,
-      "stickyLabels": true,
-      "tableQueryOptions": {
-        "geohashField": "geohash",
-        "latitudeField": "latitude",
-        "longitudeField": "longitude",
-        "metricField": "metric",
-        "queryType": "geohash"
+      "pluginVersion": "6.6.1",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
       },
+      "tableColumn": "",
       "targets": [
         {
-          "expr": "conditions_rating{timeBlock=\"pm\",subregionName=~\"[[subregionName]]\"}",
-          "format": "table",
+          "expr": "sum(conditions_rating{timeBlock=\"[[timeBlock]]\",subregionName=~\"[[subregionName]]\"} <= bool 2)",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "-1,0",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Poor to Fair Spots",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "rgba(41, 156, 70, 0)",
+        "rgba(250, 100, 0, 0)",
+        "#37872D"
+      ],
+      "datasource": null,
+      "decimals": null,
+      "format": "short",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 7,
+        "x": 8,
+        "y": 0
+      },
+      "id": 9,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "pluginVersion": "6.6.1",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "sum(conditions_rating{timeBlock=\"[[timeBlock]]\",subregionName=~\"[[subregionName]]\"} >= bool 0) - sum(conditions_rating{timeBlock=\"[[timeBlock]]\",subregionName=~\"[[subregionName]]\"} <= bool 2) - sum(conditions_rating{timeBlock=\"[[timeBlock]]\",subregionName=~\"[[subregionName]]\"} >= bool 5) ",
+          "format": "time_series",
           "hide": false,
           "instant": true,
           "refId": "A"
         }
       ],
-      "thresholds": "2,4",
+      "thresholds": "-1,0",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Spot Map",
+      "title": "Fair to Good Spots",
       "transparent": true,
-      "type": "grafana-worldmap-panel",
-      "unitPlural": "",
-      "unitSingle": "",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "rgba(41, 156, 70, 0)",
+        "rgba(250, 100, 0, 0)",
+        "#FA6400"
+      ],
+      "datasource": null,
+      "decimals": null,
+      "format": "short",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 16,
+        "y": 0
+      },
+      "id": 7,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "pluginVersion": "6.6.1",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "sum(conditions_rating{timeBlock=\"[[timeBlock]]\",subregionName=~\"[[subregionName]]\"} >= bool 5)",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "-1,0",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Good to Epic Spots",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
       "valueName": "total"
     },
     {
@@ -85,9 +288,9 @@
       "fontSize": "100%",
       "gridPos": {
         "h": 25,
-        "w": 12,
-        "x": 12,
-        "y": 0
+        "w": 13,
+        "x": 0,
+        "y": 5
       },
       "id": 4,
       "options": {},
@@ -219,10 +422,10 @@
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
           "mappingType": 1,
-          "pattern": "Value",
+          "pattern": "Value #D",
           "thresholds": [
-            "2",
-            "4"
+            "3",
+            "5"
           ],
           "type": "string",
           "unit": "short",
@@ -248,7 +451,7 @@
               "value": "5"
             },
             {
-              "text": "Good to Epci",
+              "text": "Good to Epic",
               "value": "6"
             },
             {
@@ -275,7 +478,7 @@
           "unit": "short"
         },
         {
-          "alias": "Spot Name",
+          "alias": "Spot",
           "align": "auto",
           "colorMode": null,
           "colors": [
@@ -286,8 +489,8 @@
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
           "link": true,
-          "linkTooltip": "Go to Site Dashboard",
-          "linkUrl": "/d/ouwRz-QWz/spot-dashboard?orgId=1&var-spotName=${__cell}",
+          "linkTooltip": "Go to Spot Dashboard",
+          "linkUrl": "/d/ouwRz-QWz/spot-dashboard&var-spotName=${__cell}?orgId=1",
           "mappingType": 1,
           "pattern": "spotName",
           "thresholds": [],
@@ -295,7 +498,7 @@
           "unit": "short"
         },
         {
-          "alias": "Subregion Name",
+          "alias": "Subregion",
           "align": "auto",
           "colorMode": null,
           "colors": [
@@ -305,31 +508,116 @@
           ],
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
+          "link": true,
+          "linkTooltip": "Go to Subregion Dashboard",
+          "linkUrl": "/d/aewhVLwWk/subregion-dashboard?orgId=1&var-subregionName=${__cell}",
           "mappingType": 1,
           "pattern": "subregionName",
           "thresholds": [],
           "type": "number",
           "unit": "short"
+        },
+        {
+          "alias": "Max Wave Height",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #A",
+          "thresholds": [],
+          "type": "number",
+          "unit": "lengthft"
+        },
+        {
+          "alias": "Wind Speed",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #B",
+          "thresholds": [],
+          "type": "number",
+          "unit": "velocityknot"
+        },
+        {
+          "alias": "Tide",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #C",
+          "thresholds": [],
+          "type": "number",
+          "unit": "lengthft"
+        },
+        {
+          "alias": "Min Wave Height",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value #E",
+          "thresholds": [],
+          "type": "number",
+          "unit": "lengthft"
         }
       ],
       "targets": [
         {
-          "expr": "conditions_rating{timeBlock=\"pm\",subregionName=~\"[[subregionName]]\"}+0",
+          "expr": "conditions_surf_height_min_feet{timeBlock=\"[[timeBlock]]\",subregionName=~\"[[subregionName]]\"}+0",
           "format": "table",
+          "instant": true,
+          "refId": "E"
+        },
+        {
+          "expr": "conditions_surf_height_max_feet{timeBlock=\"[[timeBlock]]\",subregionName=~\"[[subregionName]]\"}+0",
+          "format": "table",
+          "hide": false,
           "instant": true,
           "refId": "A"
         },
         {
-          "expr": "conditions_surf_height_max_feet{timeBlock=\"pm\",subregionName=~\"[[subregionName]]\"}+0",
+          "expr": "tide_height_feet{subregionName=~\"[[subregionName]]\"}+0",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "refId": "C"
+        },
+        {
+          "expr": "wind_speed_kts{subregionName=~\"[[subregionName]]\"}+0",
           "format": "table",
           "instant": true,
           "refId": "B"
         },
         {
-          "expr": "conditions_surf_height_max_feet{timeBlock=\"pm\",subregionName=~\"[[subregionName]]\"}+0",
+          "expr": "conditions_rating{timeBlock=\"[[timeBlock]]\",subregionName=~\"[[subregionName]]\"}+0",
           "format": "table",
           "instant": true,
-          "refId": "C"
+          "refId": "D"
         }
       ],
       "timeFrom": null,
@@ -338,6 +626,66 @@
       "transform": "table",
       "transparent": true,
       "type": "table"
+    },
+    {
+      "circleMaxSize": "4",
+      "circleMinSize": "4",
+      "colors": [
+        "#1F60C4",
+        "#37872D",
+        "#FA6400"
+      ],
+      "datasource": "prometheus",
+      "decimals": 0,
+      "description": "",
+      "esGeoPoint": "spotGeohash",
+      "esLocationName": "spotName",
+      "esMetric": "Value",
+      "gridPos": {
+        "h": 25,
+        "w": 11,
+        "x": 13,
+        "y": 5
+      },
+      "hideEmpty": false,
+      "hideZero": false,
+      "id": 2,
+      "initialZoom": "3",
+      "links": [],
+      "locationData": "geohash",
+      "mapCenter": "North America",
+      "mapCenterLatitude": 40,
+      "mapCenterLongitude": -100,
+      "maxDataPoints": 1,
+      "mouseWheelZoom": false,
+      "options": {},
+      "showLegend": false,
+      "stickyLabels": true,
+      "tableQueryOptions": {
+        "geohashField": "geohash",
+        "latitudeField": "latitude",
+        "longitudeField": "longitude",
+        "metricField": "metric",
+        "queryType": "geohash"
+      },
+      "targets": [
+        {
+          "expr": "conditions_rating{timeBlock=\"pm\",subregionName=~\"[[subregionName]]\"}",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "3,5",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Spot Map",
+      "transparent": true,
+      "type": "grafana-worldmap-panel",
+      "unitPlural": "",
+      "unitSingle": "",
+      "valueName": "total"
     }
   ],
   "schemaVersion": 22,
@@ -348,9 +696,9 @@
       {
         "allValue": "",
         "current": {
-          "text": "All",
+          "text": "North Shore",
           "value": [
-            "$__all"
+            "North Shore"
           ]
         },
         "datasource": "prometheus",
@@ -362,7 +710,7 @@
         "name": "subregionName",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "All",
             "value": "$__all"
           },
@@ -372,7 +720,7 @@
             "value": "North Orange County"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "North Shore",
             "value": "North Shore"
           }
@@ -382,6 +730,43 @@
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "am",
+          "value": "am"
+        },
+        "datasource": "prometheus",
+        "definition": "label_values(timeBlock)",
+        "hide": 1,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "timeBlock",
+        "options": [
+          {
+            "selected": true,
+            "text": "am",
+            "value": "am"
+          },
+          {
+            "selected": false,
+            "text": "pm",
+            "value": "pm"
+          }
+        ],
+        "query": "label_values(timeBlock)",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -410,7 +795,7 @@
     ]
   },
   "timezone": "",
-  "title": "World View",
+  "title": "World Dashboard",
   "uid": "ahiEF0QZz",
-  "version": 7
+  "version": 1
 }

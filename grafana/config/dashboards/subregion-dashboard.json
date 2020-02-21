@@ -15,332 +15,774 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
-  "iteration": 1582168436053,
+  "id": 2,
+  "iteration": 1582320019720,
   "links": [],
   "panels": [
     {
-      "circleMaxSize": "4",
-      "circleMinSize": "4",
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "panels": [],
+      "repeat": "spotName",
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "title": "Spot Oveview",
+      "type": "row"
+    },
+    {
+      "content": "\n<h1 style=\"text-align:center\"> [[spotName]] </h1>\n<br>\n<img src=\"http://localhost:9000/images?spotName=[[spotName]]\"><img>\n\n\n",
+      "datasource": null,
+      "gridPos": {
+        "h": 8,
+        "w": 4,
+        "x": 1,
+        "y": 1
+      },
+      "id": 2,
+      "mode": "html",
+      "options": {},
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "content": "<h1 style=\"text-align:center\"> AM Conditions </h1>",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 7,
+        "x": 6,
+        "y": 1
+      },
+      "id": 171,
+      "mode": "html",
+      "options": {},
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "text"
+    },
+    {
+      "content": "\n<h1 style=\"text-align:center\"> Latest Metrics </h1>\n\n\n\n\n",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 9,
+        "x": 13,
+        "y": 1
+      },
+      "id": 167,
+      "mode": "html",
+      "options": {},
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "text"
+    },
+    {
+      "content": "<div style=\"text-align:center\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\"\nwidth=\"50\" height=\"50\"\nviewBox=\"0 0 172 172\"\nstyle=\" fill:#000000;\"><g fill=\"none\" fill-rule=\"nonzero\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"><path d=\"M0,172v-172h172v172z\" fill=\"none\"></path><g fill=\"#f1c40f\"><path d=\"M86,0.3225l-2.4725,2.365l-23.65,23.7575c-1.02125,0.83313 -1.49156,2.16344 -1.19594,3.45344c0.29562,1.27656 1.30344,2.28438 2.58,2.58c1.29,0.29563 2.62031,-0.17469 3.45344,-1.19594l17.845,-17.7375v55.255c-0.01344,1.23625 0.63156,2.39188 1.70656,3.02344c1.075,0.61813 2.39187,0.61813 3.46687,0c1.075,-0.63156 1.72,-1.78719 1.70656,-3.02344v-55.255l17.845,17.7375c0.83313,1.02125 2.16344,1.49156 3.45344,1.19594c1.27656,-0.29562 2.28438,-1.30344 2.58,-2.58c0.29563,-1.29 -0.17469,-2.62031 -1.19594,-3.45344l-23.65,-23.7575zM85.6775,96.2125c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-1.59906,0.36281 -2.72781,1.80063 -2.6875,3.44v20.64c-0.01344,1.23625 0.63156,2.39188 1.70656,3.02344c1.075,0.61813 2.39187,0.61813 3.46687,0c1.075,-0.63156 1.72,-1.78719 1.70656,-3.02344v-20.64c0.04031,-0.99437 -0.36281,-1.94844 -1.075,-2.62031c-0.72562,-0.68531 -1.70656,-1.02125 -2.6875,-0.92719zM36.765,116.53c-1.29,0.22844 -2.32469,1.16906 -2.6875,2.41875c-0.36281,1.26313 0.01344,2.60688 0.9675,3.49375l14.5125,14.5125c0.83313,1.02125 2.16344,1.49156 3.45344,1.19594c1.27656,-0.29562 2.28438,-1.30344 2.58,-2.58c0.29563,-1.29 -0.17469,-2.62031 -1.19594,-3.45344l-14.5125,-14.5125c-0.645,-0.68531 -1.53187,-1.06156 -2.4725,-1.075c-0.1075,0 -0.215,0 -0.3225,0c-0.1075,0 -0.215,0 -0.3225,0zM134.16,116.53c-0.77937,0.1075 -1.505,0.49719 -2.0425,1.075l-14.5125,14.5125c-1.02125,0.83313 -1.49156,2.16344 -1.19594,3.45344c0.29562,1.27656 1.30344,2.28438 2.58,2.58c1.29,0.29563 2.62031,-0.17469 3.45344,-1.19594l14.5125,-14.5125c1.02125,-0.98094 1.33031,-2.49937 0.77938,-3.80281c-0.5375,-1.30344 -1.84094,-2.13656 -3.25188,-2.10969c-0.1075,0 -0.215,0 -0.3225,0zM85.6775,134.16c-0.1075,0.02688 -0.215,0.06719 -0.3225,0.1075c-0.215,0.01344 -0.43,0.05375 -0.645,0.1075c-0.04031,0.04031 -0.06719,0.06719 -0.1075,0.1075c-17.2,0.72563 -31.10781,13.73313 -32.7875,30.6375h-48.375c-0.1075,0 -0.215,0 -0.3225,0c-1.89469,0.09406 -3.37281,1.70656 -3.27875,3.60125c0.09406,1.89469 1.70656,3.37281 3.60125,3.27875h165.12c0.3225,0.01344 0.65844,-0.02687 0.9675,-0.1075c0.56438,-0.14781 1.08844,-0.44344 1.505,-0.86c0.08063,-0.1075 0.14781,-0.215 0.215,-0.3225c0.08063,-0.06719 0.14781,-0.13437 0.215,-0.215c0.08063,-0.1075 0.14781,-0.215 0.215,-0.3225c0.18813,-0.40312 0.29563,-0.84656 0.3225,-1.29c0.02688,-0.25531 0.02688,-0.49719 0,-0.7525c-0.05375,-0.5375 -0.24187,-1.04812 -0.5375,-1.505c-0.06719,-0.1075 -0.13437,-0.215 -0.215,-0.3225c-0.1075,-0.08062 -0.215,-0.14781 -0.3225,-0.215c-0.16125,-0.16125 -0.34937,-0.30906 -0.5375,-0.43c-0.38969,-0.26875 -0.83312,-0.44344 -1.29,-0.5375c-0.17469,-0.01344 -0.36281,-0.01344 -0.5375,0h-48.375c-1.66625,-16.83719 -15.46656,-29.80437 -32.5725,-30.6375c-0.12094,0 -0.20156,-0.1075 -0.3225,-0.1075c-0.34937,-0.13437 -0.71219,-0.20156 -1.075,-0.215c-0.06719,0 -0.14781,0 -0.215,0c-0.1075,0 -0.215,0 -0.3225,0zM85.785,141.04c0.06719,0 0.14781,0 0.215,0c0.1075,0 0.215,0 0.3225,0c14.04219,0.16125 25.32969,10.49469 26.9825,24.08h-54.61c1.66625,-13.61219 13.0075,-23.9725 27.09,-24.08z\"></path></g></g></svg>",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 6,
+        "y": 3
+      },
+      "id": 169,
+      "mode": "html",
+      "options": {},
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPrefix": false,
+      "colorValue": true,
       "colors": [
         "#1F60C4",
         "#37872D",
         "#FA6400"
       ],
-      "datasource": "prometheus",
-      "decimals": 0,
-      "description": "",
-      "esGeoPoint": "spotGeohash",
-      "esLocationName": "spotName",
-      "esMetric": "Value",
+      "datasource": null,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
       "gridPos": {
-        "h": 25,
-        "w": 12,
-        "x": 0,
-        "y": 0
+        "h": 2,
+        "w": 5,
+        "x": 8,
+        "y": 3
       },
-      "hideEmpty": false,
-      "hideZero": false,
-      "id": 2,
-      "initialZoom": "3",
+      "id": 118,
+      "interval": null,
       "links": [],
-      "locationData": "geohash",
-      "mapCenter": "North America",
-      "mapCenterLatitude": 40,
-      "mapCenterLongitude": -100,
-      "maxDataPoints": 1,
-      "mouseWheelZoom": false,
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
       "options": {},
-      "showLegend": true,
-      "stickyLabels": true,
-      "tableQueryOptions": {
-        "geohashField": "geohash",
-        "latitudeField": "latitude",
-        "longitudeField": "longitude",
-        "metricField": "metric",
-        "queryType": "geohash"
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
       },
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": true,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
       "targets": [
         {
-          "expr": "conditions_rating{timeBlock=\"pm\",subregionName=~\"[[subregionName]]\"}",
-          "format": "table",
-          "hide": false,
+          "expr": "conditions_rating{spotName=~\"[[spotName]]\",timeBlock=\"am\"}",
           "instant": true,
           "refId": "A"
         }
       ],
-      "thresholds": "2,4",
+      "thresholds": "3,5",
       "timeFrom": null,
       "timeShift": null,
-      "title": "Spot Map",
+      "title": "",
       "transparent": true,
-      "type": "grafana-worldmap-panel",
-      "unitPlural": "",
-      "unitSingle": "",
-      "valueName": "total"
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "Poor",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "Poor to Fair",
+          "value": "2"
+        },
+        {
+          "op": "=",
+          "text": "Fair",
+          "value": "3"
+        },
+        {
+          "op": "=",
+          "text": "Fair to Good",
+          "value": "4"
+        },
+        {
+          "op": "=",
+          "text": "Good",
+          "value": "5"
+        },
+        {
+          "op": "=",
+          "text": "Good to Epic",
+          "value": "6"
+        },
+        {
+          "op": "=",
+          "text": "Epic",
+          "value": "7"
+        }
+      ],
+      "valueName": "current"
     },
     {
-      "columns": [],
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\"\nwidth=\"50\" height=\"50\"\nviewBox=\"0 0 172 172\"\nstyle=\" fill:#000000;\"><g fill=\"none\" fill-rule=\"nonzero\" stroke=\"none\" stroke-width=\"none\" stroke-linecap=\"none\" stroke-linejoin=\"none\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"><path d=\"M0,172v-172h172v172z\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\"></path><g stroke=\"#3498db\" stroke-width=\"6.88\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17.2,24.08c13.76,0 20.64,-13.76 34.4,-13.76c13.76,0 20.64,13.76 34.4,13.76c13.76,0 20.64,-13.76 34.4,-13.76c13.76,0 20.64,13.76 34.4,13.76M17.2,65.36c13.76,0 20.64,-13.76 34.4,-13.76c13.76,0 20.64,13.76 34.4,13.76c13.76,0 20.64,-13.76 34.4,-13.76c13.76,0 20.64,13.76 34.4,13.76M17.2,147.92c13.76,0 20.64,-13.76 34.4,-13.76c13.76,0 20.64,13.76 34.4,13.76c13.76,0 20.64,-13.76 34.4,-13.76c13.76,0 20.64,13.76 34.4,13.76M17.2,106.64c13.76,0 20.64,-13.76 34.4,-13.76c13.76,0 20.64,13.76 34.4,13.76c13.76,0 20.64,-13.76 34.4,-13.76c13.76,0 20.64,13.76 34.4,13.76\"></path></g></g></svg>",
       "datasource": null,
-      "fontSize": "100%",
       "gridPos": {
-        "h": 25,
-        "w": 12,
-        "x": 12,
-        "y": 0
+        "h": 2,
+        "w": 1,
+        "x": 13,
+        "y": 3
       },
-      "id": 4,
+      "id": 144,
+      "mode": "html",
       "options": {},
-      "pageSize": null,
-      "showHeader": true,
-      "sort": {
-        "col": 0,
-        "desc": true
-      },
-      "styles": [
-        {
-          "alias": "Time",
-          "align": "auto",
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "pattern": "Time",
-          "type": "hidden"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "instance",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "job",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "spotGeohash",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "spotId",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "subregionId",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "timeBlock",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "Rating",
-          "align": "auto",
-          "colorMode": "cell",
-          "colors": [
-            "#1F60C4",
-            "#37872D",
-            "#FA6400"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Value",
-          "thresholds": [
-            "2",
-            "4"
-          ],
-          "type": "string",
-          "unit": "short",
-          "valueMaps": [
-            {
-              "text": "Poor",
-              "value": "1"
-            },
-            {
-              "text": "Poor to Fair",
-              "value": "2"
-            },
-            {
-              "text": "Fair",
-              "value": "3"
-            },
-            {
-              "text": "Fair to Good",
-              "value": "4"
-            },
-            {
-              "text": "Good",
-              "value": "5"
-            },
-            {
-              "text": "Good to Epci",
-              "value": "6"
-            },
-            {
-              "text": "Epic",
-              "value": "7"
-            }
-          ]
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "__name__",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "Spot Name",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "link": true,
-          "linkTooltip": "Go to Spot Dashboard",
-          "linkUrl": "/d/ouwRz-QWz/spot-dashboard?orgId=1&var-spotName=${__cell}",
-          "mappingType": 1,
-          "pattern": "spotName",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        },
-        {
-          "alias": "Subregion Name",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "link": true,
-          "linkTooltip": "Go to Subregion Dashboard",
-          "linkUrl": "http://localhost:3000/d/rdjbkawWk/subregion-dashboard?orgId=1&var-subregionName=${__cell}",
-          "mappingType": 1,
-          "pattern": "subregionName",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        }
-      ],
-      "targets": [
-        {
-          "expr": "conditions_rating{timeBlock=\"pm\",subregionName=~\"[[subregionName]]\"}+0",
-          "format": "table",
-          "instant": true,
-          "refId": "A"
-        },
-        {
-          "expr": "conditions_surf_height_max_feet{timeBlock=\"pm\",subregionName=~\"[[subregionName]]\"}+0",
-          "format": "table",
-          "instant": true,
-          "refId": "B"
-        },
-        {
-          "expr": "conditions_surf_height_max_feet{timeBlock=\"pm\",subregionName=~\"[[subregionName]]\"}+0",
-          "format": "table",
-          "instant": true,
-          "refId": "C"
-        }
-      ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Spot Ratings",
-      "transform": "table",
+      "title": "",
       "transparent": true,
-      "type": "table"
+      "type": "text"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": null,
+      "decimals": null,
+      "format": "lengthft",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 8,
+        "x": 14,
+        "y": 3
+      },
+      "id": 117,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "max wave",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": true,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "surf_height_max_feet{spotName=~\"[[spotName]]\"}",
+          "instant": false,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "content": "<h1 style=\"text-align:center\"> PM Conditions </h1>",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 7,
+        "x": 6,
+        "y": 5
+      },
+      "id": 176,
+      "mode": "html",
+      "options": {},
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "text"
+    },
+    {
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\"\nwidth=\"50\" height=\"50\"\nviewBox=\"0 0 172 172\"\nstyle=\" fill:#000000;\"><g fill=\"none\" fill-rule=\"nonzero\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"><path d=\"M0,172v-172h172v172z\" fill=\"none\"></path><g fill=\"#3498db\"><path d=\"M0,0v172h172v-6.88h-165.12v-7.095c1.12875,0.09406 2.48594,0.215 4.085,0.215c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c2.74125,0 5.29438,-0.40312 7.525,-1.29c1.26313,-0.37625 2.19031,-1.42437 2.41875,-2.71437c0.215,-1.29 -0.30906,-2.59344 -1.37062,-3.37281c-1.06156,-0.76594 -2.4725,-0.86 -3.62813,-0.25531c-1.20937,0.48375 -2.86219,0.7525 -4.945,0.7525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-0.83312,-0.71219 -1.94844,-0.99437 -3.01,-0.7525c-0.52406,0.13438 -0.99437,0.38969 -1.3975,0.7525c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-1.38406,0 -2.72781,-0.12094 -4.085,-0.215v-24.08c1.12875,0.09406 2.48594,0.215 4.085,0.215c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c2.74125,0 5.29438,-0.40312 7.525,-1.29c1.26313,-0.37625 2.19031,-1.42437 2.41875,-2.71437c0.215,-1.29 -0.30906,-2.59344 -1.37062,-3.37281c-1.06156,-0.76594 -2.4725,-0.86 -3.62813,-0.25531c-1.20937,0.48375 -2.86219,0.7525 -4.945,0.7525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-0.83312,-0.71219 -1.94844,-0.99437 -3.01,-0.7525c-0.52406,0.13438 -0.99437,0.38969 -1.3975,0.7525c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-1.38406,0 -2.72781,-0.12094 -4.085,-0.215v-24.08c1.12875,0.09406 2.48594,0.215 4.085,0.215c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c2.74125,0 5.29438,-0.40312 7.525,-1.29c1.26313,-0.37625 2.19031,-1.42437 2.41875,-2.71437c0.215,-1.29 -0.30906,-2.59344 -1.37062,-3.37281c-1.06156,-0.76594 -2.4725,-0.86 -3.62813,-0.25531c-1.20937,0.48375 -2.86219,0.7525 -4.945,0.7525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-0.83312,-0.71219 -1.94844,-0.99437 -3.01,-0.7525c-0.52406,0.13438 -0.99437,0.38969 -1.3975,0.7525c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-1.38406,0 -2.72781,-0.12094 -4.085,-0.215v-24.08c1.12875,0.09406 2.48594,0.215 4.085,0.215c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c5.17344,0 12.685,-1.54531 18.92,-5.59c6.24844,4.09844 13.71969,5.59 18.92,5.59c2.74125,0 5.29438,-0.40312 7.525,-1.29c1.26313,-0.37625 2.19031,-1.42437 2.41875,-2.71437c0.215,-1.29 -0.30906,-2.59344 -1.37062,-3.37281c-1.06156,-0.76594 -2.4725,-0.86 -3.62813,-0.25531c-1.20937,0.48375 -2.86219,0.7525 -4.945,0.7525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-2.51281,0 -6.00656,-0.38969 -9.3525,-1.3975c7.55188,-6.39625 12.1475,-15.86969 12.1475,-26.1225v-6.88c0,-1.89469 -1.54531,-3.44 -3.44,-3.44h-13.76v-17.2c0,-1.89469 -1.54531,-3.44 -3.44,-3.44h-41.28c-0.1075,0 -0.215,0 -0.3225,0c-1.77375,0.16125 -3.13094,1.65281 -3.1175,3.44v17.2h-13.76c-0.1075,0 -0.215,0 -0.3225,0c-1.77375,0.16125 -3.13094,1.65281 -3.1175,3.44v6.88c0,10.2125 4.59563,19.92781 12.47,26.3375c-3.06375,0.80625 -6.11406,1.1825 -8.385,1.1825c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-0.83312,-0.71219 -1.94844,-0.99437 -3.01,-0.7525c-0.52406,0.13438 -0.99437,0.38969 -1.3975,0.7525c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-1.38406,0 -2.72781,-0.12094 -4.085,-0.215v-58.265zM68.8,6.88h34.4v13.76h-34.4zM51.6,27.52h68.8v3.44c0,9.28531 -4.71656,17.65688 -12.255,22.6825c-0.09406,-0.08062 -0.22844,-0.13437 -0.3225,-0.215c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-4.46125,3.62813 -12.22812,5.0525 -16.77,5.0525c-4.54187,0 -12.20125,-1.42437 -16.6625,-5.0525c-1.27656,-1.06156 -3.13094,-1.06156 -4.4075,0c-0.29562,0.24188 -0.645,0.43 -0.9675,0.645c-8.15656,-4.89125 -13.0075,-13.67937 -13.0075,-23.1125z\"></path></g></g></svg>",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 1,
+        "x": 13,
+        "y": 5
+      },
+      "id": 145,
+      "mode": "html",
+      "options": {},
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": null,
+      "format": "lengthft",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 8,
+        "x": 14,
+        "y": 5
+      },
+      "id": 15,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "tide",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": true,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "tide_height_feet{spotName=~\"[[spotName]]\"}",
+          "format": "time_series",
+          "instant": false,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "content": "<div style=\"text-align:center\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\"\nwidth=\"50\" height=\"50\"\nviewBox=\"0 0 172 172\"\nstyle=\" fill:#000000;\"><g fill=\"none\" fill-rule=\"nonzero\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"><path d=\"M0,172v-172h172v172z\" fill=\"none\"></path><g fill=\"#f1c40f\"><path d=\"M85.6775,-0.1075c-0.14781,0.02687 -0.29562,0.06719 -0.43,0.1075c-1.59906,0.36281 -2.72781,1.80063 -2.6875,3.44v55.255l-17.845,-17.7375c-0.71219,-0.76594 -1.74687,-1.15562 -2.795,-1.075c-1.34375,0.13438 -2.48594,1.03469 -2.91594,2.29781c-0.44344,1.27656 -0.09406,2.6875 0.87344,3.61469l23.65,23.7575l2.4725,2.365l2.4725,-2.365l23.65,-23.7575c1.02125,-0.83312 1.49156,-2.16344 1.19594,-3.45344c-0.29562,-1.27656 -1.30344,-2.28438 -2.58,-2.58c-1.29,-0.29563 -2.62031,0.17469 -3.45344,1.19594l-17.845,17.7375v-55.255c0.04031,-0.99437 -0.36281,-1.94844 -1.075,-2.62031c-0.72562,-0.68531 -1.70656,-1.02125 -2.6875,-0.92719zM85.6775,96.2125c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-1.59906,0.36281 -2.72781,1.80063 -2.6875,3.44v20.64c-0.01344,1.23625 0.63156,2.39188 1.70656,3.02344c1.075,0.61813 2.39187,0.61813 3.46687,0c1.075,-0.63156 1.72,-1.78719 1.70656,-3.02344v-20.64c0.04031,-0.99437 -0.36281,-1.94844 -1.075,-2.62031c-0.72562,-0.68531 -1.70656,-1.02125 -2.6875,-0.92719zM36.765,116.53c-1.29,0.22844 -2.32469,1.16906 -2.6875,2.41875c-0.36281,1.26313 0.01344,2.60688 0.9675,3.49375l14.5125,14.5125c0.83313,1.02125 2.16344,1.49156 3.45344,1.19594c1.27656,-0.29562 2.28438,-1.30344 2.58,-2.58c0.29563,-1.29 -0.17469,-2.62031 -1.19594,-3.45344l-14.5125,-14.5125c-0.645,-0.68531 -1.53187,-1.06156 -2.4725,-1.075c-0.1075,0 -0.215,0 -0.3225,0c-0.1075,0 -0.215,0 -0.3225,0zM134.16,116.53c-0.77937,0.1075 -1.505,0.49719 -2.0425,1.075l-14.5125,14.5125c-1.02125,0.83313 -1.49156,2.16344 -1.19594,3.45344c0.29562,1.27656 1.30344,2.28438 2.58,2.58c1.29,0.29563 2.62031,-0.17469 3.45344,-1.19594l14.5125,-14.5125c1.02125,-0.98094 1.33031,-2.49937 0.77938,-3.80281c-0.5375,-1.30344 -1.84094,-2.13656 -3.25188,-2.10969c-0.1075,0 -0.215,0 -0.3225,0zM85.6775,134.16c-0.1075,0.02688 -0.215,0.06719 -0.3225,0.1075c-0.215,0.01344 -0.43,0.05375 -0.645,0.1075c-0.04031,0.04031 -0.06719,0.06719 -0.1075,0.1075c-17.2,0.72563 -31.10781,13.73313 -32.7875,30.6375h-48.375c-0.1075,0 -0.215,0 -0.3225,0c-1.89469,0.09406 -3.37281,1.70656 -3.27875,3.60125c0.09406,1.89469 1.70656,3.37281 3.60125,3.27875h165.12c0.3225,0.01344 0.65844,-0.02687 0.9675,-0.1075c0.56438,-0.14781 1.08844,-0.44344 1.505,-0.86c0.08063,-0.1075 0.14781,-0.215 0.215,-0.3225c0.08063,-0.06719 0.14781,-0.13437 0.215,-0.215c0.08063,-0.1075 0.14781,-0.215 0.215,-0.3225c0.18813,-0.40312 0.29563,-0.84656 0.3225,-1.29c0.02688,-0.25531 0.02688,-0.49719 0,-0.7525c-0.05375,-0.5375 -0.24187,-1.04812 -0.5375,-1.505c-0.06719,-0.1075 -0.13437,-0.215 -0.215,-0.3225c-0.1075,-0.08062 -0.215,-0.14781 -0.3225,-0.215c-0.16125,-0.16125 -0.34937,-0.30906 -0.5375,-0.43c-0.38969,-0.26875 -0.83312,-0.44344 -1.29,-0.5375c-0.17469,-0.01344 -0.36281,-0.01344 -0.5375,0h-48.375c-1.66625,-16.83719 -15.46656,-29.80437 -32.5725,-30.6375c-0.12094,0 -0.20156,-0.1075 -0.3225,-0.1075c-0.34937,-0.13437 -0.71219,-0.20156 -1.075,-0.215c-0.06719,0 -0.14781,0 -0.215,0c-0.1075,0 -0.215,0 -0.3225,0zM85.785,141.04c0.06719,0 0.14781,0 0.215,0c0.1075,0 0.215,0 0.3225,0c14.04219,0.16125 25.32969,10.49469 26.9825,24.08h-54.61c1.66625,-13.61219 13.0075,-23.9725 27.09,-24.08z\"></path></g></g></svg>",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 6,
+        "y": 7
+      },
+      "id": 174,
+      "mode": "html",
+      "options": {},
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPrefix": false,
+      "colorValue": true,
+      "colors": [
+        "#1F60C4",
+        "#37872D",
+        "#FA6400"
+      ],
+      "datasource": null,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 5,
+        "x": 8,
+        "y": 7
+      },
+      "id": 179,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": true,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "conditions_rating{spotName=~\"[[spotName]]\",timeBlock=\"pm\"}",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "3,5",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "POOR",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "POOR_TO_FAIR",
+          "value": "2"
+        },
+        {
+          "op": "=",
+          "text": "FAIR",
+          "value": "3"
+        },
+        {
+          "op": "=",
+          "text": "FAIR_TO_GOOD",
+          "value": "4"
+        },
+        {
+          "op": "=",
+          "text": "GOOD",
+          "value": "5"
+        },
+        {
+          "op": "=",
+          "text": "GOOD_TO_EPIC",
+          "value": "6"
+        },
+        {
+          "op": "=",
+          "text": "7",
+          "value": "EPIC"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\"\nwidth=\"50\" height=\"50\"\nviewBox=\"0 0 172 172\"\nstyle=\" fill:#000000;\"><g fill=\"none\" fill-rule=\"nonzero\" stroke=\"none\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"><path d=\"M0,172v-172h172v172z\" fill=\"none\"></path><g fill=\"#3498db\"><path d=\"M53.32,13.76c-9.18579,0 -17.26866,4.83773 -21.82922,12.08703c-0.69431,1.04006 -0.76959,2.37497 -0.1966,3.4865c0.57299,1.11153 1.70399,1.82461 2.95394,1.86241c1.24995,0.03781 2.42198,-0.60561 3.0611,-1.68048c3.35144,-5.32734 9.23497,-8.87547 16.01078,-8.87547c10.65731,0 19.1883,8.68957 18.91328,19.4239c-0.26597,10.33229 -9.41664,18.4161 -19.94797,18.4161h-38.52531c-1.24059,-0.01754 -2.39452,0.63425 -3.01993,1.7058c-0.62541,1.07155 -0.62541,2.39684 0,3.46839c0.62541,1.07155 1.77935,1.72335 3.01993,1.7058h38.52531c14.06467,0 26.46098,-10.86457 26.82797,-25.1214c0.37171,-14.50839 -11.35923,-26.4786 -25.79328,-26.4786zM130.72,27.52c-11.63733,0 -21.81139,6.44937 -27.09,15.97719c-0.5969,1.0754 -0.57462,2.38758 0.05845,3.4421c0.63307,1.05452 1.78071,1.6911 3.01048,1.66987c1.22977,-0.02122 2.35476,-0.69702 2.95107,-1.77276c4.10571,-7.41074 11.97101,-12.4364 21.07,-12.4364c13.83412,0 24.87715,11.52609 24.03297,25.57156c-0.76982,12.80835 -12.10395,22.58844 -25.10797,22.58844h-115.885c-1.24059,-0.01754 -2.39452,0.63425 -3.01993,1.7058c-0.62541,1.07155 -0.62541,2.39684 0,3.46839c0.62541,1.07155 1.77935,1.72335 3.01993,1.7058h115.885c16.46302,0 30.97619,-12.44135 31.97453,-29.05187c1.07534,-17.89149 -13.20949,-32.86813 -30.89953,-32.86813zM13.76,106.64c-1.24059,-0.01754 -2.39452,0.63425 -3.01993,1.7058c-0.62541,1.07155 -0.62541,2.39684 0,3.46839c0.62541,1.07155 1.77935,1.72335 3.01993,1.7058h72.92531c10.53133,0 19.682,8.08381 19.94797,18.4161c0.27501,10.73433 -8.25597,19.4239 -18.91328,19.4239c-6.77581,0 -12.65934,-3.54813 -16.01078,-8.87547c-0.63911,-1.07487 -1.81115,-1.7183 -3.0611,-1.68049c-1.24995,0.03781 -2.38096,0.75089 -2.95395,1.86242c-0.57299,1.11153 -0.49771,2.44644 0.19661,3.48651c4.56056,7.2493 12.64343,12.08703 21.82922,12.08703c14.43405,0 26.16499,-11.97021 25.79328,-26.4786c-0.36699,-14.25683 -12.7633,-25.1214 -26.82797,-25.1214z\"></path></g></g></svg>",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 1,
+        "x": 13,
+        "y": 7
+      },
+      "id": 127,
+      "mode": "html",
+      "options": {},
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": null,
+      "format": "velocityknot",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 8,
+        "x": 14,
+        "y": 7
+      },
+      "id": 116,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "wind speed",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": true,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "wind_speed_kts{spotName=~\"[[spotName]]\"}",
+          "format": "time_series",
+          "instant": false,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "content": "<hr>",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 22,
+        "x": 0,
+        "y": 9
+      },
+      "id": 178,
+      "mode": "markdown",
+      "options": {},
+      "scopedVars": {
+        "spotName": {
+          "selected": true,
+          "text": "Haleiwa",
+          "value": "Haleiwa"
+        }
+      },
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "transparent": true,
+      "type": "text"
     }
   ],
   "schemaVersion": 22,
@@ -349,42 +791,63 @@
   "templating": {
     "list": [
       {
-        "allValue": "",
+        "allValue": null,
         "current": {
-          "text": "All",
-          "value": [
-            "$__all"
-          ]
+          "selected": false,
+          "text": "North Shore",
+          "value": "North Shore"
         },
         "datasource": "prometheus",
-        "definition": "label_values(subregionName)\t",
-        "hide": 0,
-        "includeAll": true,
+        "definition": "label_values(subregionName)",
+        "hide": 2,
+        "includeAll": false,
         "label": "Subregion",
-        "multi": true,
+        "multi": false,
         "name": "subregionName",
         "options": [
-          {
-            "selected": true,
-            "text": "All",
-            "value": "$__all"
-          },
           {
             "selected": false,
             "text": "North Orange County",
             "value": "North Orange County"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "North Shore",
             "value": "North Shore"
           }
         ],
-        "query": "label_values(subregionName)\t",
+        "query": "label_values(subregionName)",
         "refresh": 0,
         "regex": "",
         "skipUrlSync": false,
-        "sort": 1,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "text": "Haleiwa",
+          "value": [
+            "Haleiwa"
+          ]
+        },
+        "datasource": "prometheus",
+        "definition": "label_values(location{subregionName=\"[[subregionName]]\"},spotName)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Spot",
+        "multi": true,
+        "name": "spotName",
+        "options": [],
+        "query": "label_values(location{subregionName=\"[[subregionName]]\"},spotName)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
         "tagValuesQuery": "",
         "tags": [],
         "tagsQuery": "",
@@ -394,7 +857,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -413,7 +876,7 @@
     ]
   },
   "timezone": "",
-  "title": "World View",
-  "uid": "ahiEF0QZz",
-  "version": 13
+  "title": "Subregion Dashboard",
+  "uid": "aewhVLwWk",
+  "version": 1
 }

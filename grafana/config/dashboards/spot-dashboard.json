@@ -15,17 +15,154 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1582186861243,
+  "iteration": 1582319934439,
   "links": [],
   "panels": [
     {
-      "content": "<h1>Latest Highlight Clip</h1>\n<video height=\"400\" controls autoplay>\n  <source src=\"[[spotCameraRewindClip]]\" type=\"video/mp4\">\nYour browser does not support the video tag.\n</video>\n<br>\n\n<strong>Wanna watch live? Start streaming <a href=\"[[spotCameraStreamUrl]]\" target=\"_blank\">here</a></strong>\n\n\n",
+      "content": "<h1 style=\"text-align:center\">Conditions</h2>\n\n\n\n",
       "datasource": null,
       "gridPos": {
-        "h": 13,
-        "w": 11,
+        "h": 2,
+        "w": 24,
         "x": 0,
         "y": 0
+      },
+      "id": 18,
+      "mode": "html",
+      "options": {},
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "text"
+    },
+    {
+      "datasource": null,
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 0,
+        "y": 2
+      },
+      "id": 25,
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "mappings": [
+              {
+                "from": "",
+                "id": 1,
+                "operator": "",
+                "text": "Poor",
+                "to": "",
+                "type": 1,
+                "value": "1"
+              },
+              {
+                "from": "",
+                "id": 2,
+                "operator": "",
+                "text": "Poor to Fair",
+                "to": "",
+                "type": 1,
+                "value": "2"
+              },
+              {
+                "from": "",
+                "id": 3,
+                "operator": "",
+                "text": "Fair",
+                "to": "",
+                "type": 1,
+                "value": "3"
+              },
+              {
+                "from": "",
+                "id": 4,
+                "operator": "",
+                "text": "Fair to Good",
+                "to": "",
+                "type": 1,
+                "value": "4"
+              },
+              {
+                "from": "",
+                "id": 5,
+                "operator": "",
+                "text": "Good ",
+                "to": "",
+                "type": 1,
+                "value": "5"
+              },
+              {
+                "from": "",
+                "id": 6,
+                "operator": "",
+                "text": "Good to Epic",
+                "to": "",
+                "type": 1,
+                "value": "6"
+              },
+              {
+                "from": "",
+                "id": 7,
+                "operator": "",
+                "text": "Epic",
+                "to": "",
+                "type": 1,
+                "value": "7"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-blue",
+                  "value": null
+                },
+                {
+                  "color": "dark-green",
+                  "value": 3
+                },
+                {
+                  "color": "dark-orange",
+                  "value": 5
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false
+      },
+      "pluginVersion": "6.6.1",
+      "targets": [
+        {
+          "expr": "conditions_rating{spotName=\"[[spotName]]\"}",
+          "instant": false,
+          "legendFormat": "{{timeBlock}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Overall Rating",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "content": "<h1>Latest Highlight</h1>\n<video height=\"400\" controls autoplay>\n  <source src=\"[[spotCameraRewindClip]]\" type=\"video/mp4\">\nYour browser does not support the video tag.\n</video>\n<br>\n<br>\n\n<h3>Wanna watch live? Start streaming <a href=\"[[spotCameraStreamUrl]]\" target=\"_blank\">here</a></h3>\n\n\n",
+      "datasource": null,
+      "gridPos": {
+        "h": 15,
+        "w": 8,
+        "x": 8,
+        "y": 2
       },
       "id": 4,
       "links": [
@@ -38,26 +175,698 @@
       "options": {},
       "timeFrom": null,
       "timeShift": null,
-      "title": "Highlight Reel",
+      "title": "",
       "transparent": true,
       "type": "text"
     },
     {
-      "content": "<img src=\"[[spotCameraStillUrl]]\"></img>",
+      "datasource": "loki",
+      "gridPos": {
+        "h": 12,
+        "w": 8,
+        "x": 16,
+        "y": 2
+      },
+      "id": 23,
+      "maxDataPoints": "5",
+      "options": {
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": true
+      },
+      "targets": [
+        {
+          "expr": "{spotName=\"[[spotName]]\",commentaryType=\"human_relation\"}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Recent Reports",
+      "transparent": true,
+      "type": "logs"
+    },
+    {
+      "content": "\n<h1 style=\"text-align:center\">Swelll</h2>\n\n\n\n",
       "datasource": null,
       "gridPos": {
-        "h": 8,
+        "h": 2,
         "w": 12,
-        "x": 12,
-        "y": 0
+        "x": 0,
+        "y": 17
       },
-      "id": 2,
+      "id": 26,
       "mode": "html",
       "options": {},
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "",
       "type": "text"
+    },
+    {
+      "content": "\n<h1 style=\"text-align:center\">Tide</h2>\n\n\n\n",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "id": 27,
+      "mode": "html",
+      "options": {},
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "text"
+    },
+    {
+      "datasource": null,
+      "gridPos": {
+        "h": 6,
+        "w": 11,
+        "x": 0,
+        "y": 19
+      },
+      "id": 16,
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "mappings": [],
+            "max": 360,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-yellow",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "degree"
+          },
+          "overrides": [],
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.6.1",
+      "targets": [
+        {
+          "expr": "(swell_direction_min_degrees{spotName=\"[[spotName]]\"} + swell_direction_max_degrees{spotName=\"[[spotName]]\"}) / 2",
+          "legendFormat": "{{swellId}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Direction",
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fill": 4,
+      "fillGradient": 3,
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 19
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "tide_height_feet{spotName=~\"[[spotName]]\"}",
+          "legendFormat": "Tide Height",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Height",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "lengthft",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 4,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 6,
+        "x": 0,
+        "y": 25
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.6.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "swell_height_feet{spotName=\"[[spotName]]\"} ",
+          "instant": false,
+          "legendFormat": "{{swellId}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Max Wave Heights",
+      "tooltip": {
+        "shared": true,
+        "sort": 2,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [],
+      "datasource": null,
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 10,
+        "w": 6,
+        "x": 6,
+        "y": 25
+      },
+      "id": 10,
+      "options": {},
+      "pageSize": null,
+      "pluginVersion": "6.6.1",
+      "showHeader": true,
+      "sort": {
+        "col": 9,
+        "desc": false
+      },
+      "styles": [
+        {
+          "alias": "Time",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "hidden"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "__name__",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Period",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "mappingType": 1,
+          "pattern": "Value",
+          "thresholds": [],
+          "type": "number",
+          "unit": "s"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "job",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "spotName",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "subregionId",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "subregionName",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "Swell ",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "swellId",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        },
+        {
+          "alias": "Direction",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "Value ",
+          "thresholds": [],
+          "type": "number",
+          "unit": "degree",
+          "valueMaps": [
+            {
+              "text": "NEw",
+              "value": "65"
+            }
+          ]
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "spotGeohash",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        },
+        {
+          "alias": "",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "spotId",
+          "thresholds": [],
+          "type": "hidden",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "swell_period_feet{spotName=\"[[spotName]]\"}",
+          "format": "table",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Period",
+      "transform": "table",
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "content": "\n<h1 style=\"text-align:center\">Wind</h2>\n\n\n\n",
+      "datasource": null,
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 12,
+        "y": 25
+      },
+      "id": 19,
+      "mode": "html",
+      "options": {},
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "",
+      "type": "text"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fill": 4,
+      "fillGradient": 3,
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 12,
+        "y": 27
+      },
+      "hiddenSeries": false,
+      "id": 28,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "wind_speed_kts{spotName=~\"[[spotName]]\"}",
+          "legendFormat": "Wind Speed",
+          "refId": "A"
+        },
+        {
+          "expr": "wind_gust_kts{spotName=~\"[[spotName]]\"}",
+          "legendFormat": "Wind Gusts",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Speed & Gusts",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "transparent": true,
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "velocityknot",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": "prometheus",
+      "gridPos": {
+        "h": 7,
+        "w": 4,
+        "x": 20,
+        "y": 27
+      },
+      "id": 29,
+      "options": {
+        "fieldOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "super-light-orange",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "degree"
+          },
+          "overrides": [],
+          "values": false
+        },
+        "orientation": "auto",
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "6.6.1",
+      "targets": [
+        {
+          "expr": "wind_direction_degrees{spotName=~\"[[spotName]]\"}",
+          "legendFormat": "Wind Speed",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Direction",
+      "transparent": true,
+      "type": "gauge"
     }
   ],
   "schemaVersion": 22,
@@ -69,8 +878,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "Laniakea",
-          "value": "Laniakea"
+          "text": "Backdoor Overview",
+          "value": "Backdoor Overview"
         },
         "datasource": "prometheus",
         "definition": "label_values(spotName)",
@@ -126,7 +935,7 @@
             "value": "Backdoor"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "Backdoor Overview",
             "value": "Backdoor Overview"
           },
@@ -241,7 +1050,7 @@
             "value": "Kaena Point"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "Laniakea",
             "value": "Laniakea"
           },
@@ -430,8 +1239,10 @@
       {
         "allValue": null,
         "current": {
-          "text": "https://camstills.cdn-surfline.com/hi-laniakea/latest_small.jpg",
-          "value": "https://camstills.cdn-surfline.com/hi-laniakea/latest_small.jpg"
+          "isNone": true,
+          "selected": true,
+          "text": "None",
+          "value": ""
         },
         "datasource": "postgres",
         "definition": "select still_url from cameras where spot_name='[[spotName]]'",
@@ -442,14 +1253,10 @@
         "name": "spotCameraStillUrl",
         "options": [
           {
+            "isNone": true,
             "selected": true,
-            "text": "https://camstills.cdn-surfline.com/hi-laniakea/latest_small.jpg",
-            "value": "https://camstills.cdn-surfline.com/hi-laniakea/latest_small.jpg"
-          },
-          {
-            "selected": false,
-            "text": "https://camstills.cdn-surfline.com/hi-laniakeainside/latest_small.jpg",
-            "value": "https://camstills.cdn-surfline.com/hi-laniakeainside/latest_small.jpg"
+            "text": "None",
+            "value": ""
           }
         ],
         "query": "select still_url from cameras where spot_name='[[spotName]]'",
@@ -466,8 +1273,10 @@
       {
         "allValue": null,
         "current": {
-          "text": "https://camrewinds.cdn-surfline.com/hi-laniakea/hi-laniakea.1500.2020-02-19.mp4",
-          "value": "https://camrewinds.cdn-surfline.com/hi-laniakea/hi-laniakea.1500.2020-02-19.mp4"
+          "isNone": true,
+          "selected": true,
+          "text": "None",
+          "value": ""
         },
         "datasource": "postgres",
         "definition": "select rewind_clip from cameras where spot_name='[[spotName]]'",
@@ -478,14 +1287,10 @@
         "name": "spotCameraRewindClip",
         "options": [
           {
+            "isNone": true,
             "selected": true,
-            "text": "https://camrewinds.cdn-surfline.com/hi-laniakea/hi-laniakea.1500.2020-02-19.mp4",
-            "value": "https://camrewinds.cdn-surfline.com/hi-laniakea/hi-laniakea.1500.2020-02-19.mp4"
-          },
-          {
-            "selected": false,
-            "text": "https://camrewinds.cdn-surfline.com/hi-laniakeainside/hi-laniakeainside.1500.2020-02-19.mp4",
-            "value": "https://camrewinds.cdn-surfline.com/hi-laniakeainside/hi-laniakeainside.1500.2020-02-19.mp4"
+            "text": "None",
+            "value": ""
           }
         ],
         "query": "select rewind_clip from cameras where spot_name='[[spotName]]'",
@@ -502,8 +1307,10 @@
       {
         "allValue": null,
         "current": {
-          "text": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakea/playlist.m3u8",
-          "value": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakea/playlist.m3u8"
+          "isNone": true,
+          "selected": true,
+          "text": "None",
+          "value": ""
         },
         "datasource": "postgres",
         "definition": "select stream_url from cameras where spot_name='[[spotName]]'",
@@ -514,14 +1321,10 @@
         "name": "spotCameraStreamUrl",
         "options": [
           {
+            "isNone": true,
             "selected": true,
-            "text": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakea/playlist.m3u8",
-            "value": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakea/playlist.m3u8"
-          },
-          {
-            "selected": false,
-            "text": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakeainside/playlist.m3u8",
-            "value": "https://cams.cdn-surfline.com/cdn-wc/hi-laniakeainside/playlist.m3u8"
+            "text": "None",
+            "value": ""
           }
         ],
         "query": "select stream_url from cameras where spot_name='[[spotName]]'",
@@ -538,7 +1341,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {

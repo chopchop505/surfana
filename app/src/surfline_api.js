@@ -4,12 +4,17 @@ const URL = require('url');
 const fs = require('fs');
 const util = require('util');
 
-const axios = require('axios')
+const axios = require('axios');
+const rateLimit = require('axios-rate-limit');
+
 const _ = require('lodash');
 const hasher = require('node-object-hash')({ sort: true, coerce: true });
 
 const FORECAST_URL = 'https://services.surfline.com/kbyg/spots/forecasts';
 const REGION_URL = 'https://services.surfline.com/kbyg/regions/overview';
+
+// only requests twice per second
+const http = rateLimit(axios.create({ timeout: 5000 }), { maxRPS: 1 })
 
 // Running in offline mode, just returns sample responses
 // This is useful for demos, you know....when something inevitably goes wrong
@@ -33,7 +38,7 @@ class SurflineClient {
   }
 
   async _apiCall(myUrl, params = null) {
-    let response = await axios.get(myUrl, { params });
+    let response = await http.get(myUrl, { params });
 
     // If we are seeding the OFFLINE data, write to disk
     if (process.env.SEED_OFFLINE) {

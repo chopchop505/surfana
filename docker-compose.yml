@@ -15,7 +15,7 @@ services:
     volumes:
       - north-shore-logs:/var/log/
     environment:
-      - CLOCK_SPEED=1000
+      - CLOCK_SPEED=250
       - SUB_REGION_ID=58581a836630e24c44878fcb
       - PGHOST=postgres
       - PGPASSWORD=surfana
@@ -31,13 +31,14 @@ services:
       - loki
       - prometheus
       - promtail
+      - postgres
     build: ./app
     ports:
       - "3002:3001"
     volumes:
       - north-shore-logs:/var/log/
     environment:
-      - CLOCK_SPEED=1000
+      - CLOCK_SPEED=250
       - SUB_REGION_ID=58581a836630e24c44878fd6
       - PGHOST=postgres
       - PGPASSWORD=surfana
@@ -46,7 +47,7 @@ services:
       - grafana-postgres
       - prometheus-loki-app
       - internet
-
+      
   # Run 1 sidecar promtail for each app
   # Each app shares a log directory volume with promtail
   promtail:
@@ -71,6 +72,21 @@ services:
     networks:
         - prometheus-loki-app
 
+  # Run 1 image proxy
+  image-proxy:
+    depends_on:
+      - postgres
+    build: ./image-proxy
+    ports:
+      - "9000:3001"
+    environment:
+      - PGHOST=postgres
+      - PGPASSWORD=surfana
+    networks:
+      - grafana-image-proxy
+      - image-proxy-postgres
+      - internet
+
   # Run 1 postgres
   postgres:
     image: postgres:10.12
@@ -82,6 +98,7 @@ services:
     networks:
         - app-postgres
         - grafana-postgres
+        - image-proxy-postgres
 
   # Run 1 loki instance, configured in basic local mode
   loki:
@@ -127,6 +144,7 @@ services:
       - grafana-loki
       - grafana-prometheus
       - grafana-postgres
+      - grafana-image-proxy
 
 
 networks:
@@ -137,9 +155,13 @@ networks:
     internal: true
   grafana-postgres:
     internal: true
+  grafana-image-proxy:
+    internal: true
   prometheus-loki-app:
     internal: true
   app-postgres:
+    internal: true
+  image-proxy-postgres:
     internal: true
   internet:
     driver: bridge

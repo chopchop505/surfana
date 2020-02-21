@@ -53,16 +53,34 @@ class SpotMonitor {
     })
   }
 
-  start() {
-    this.forecastConditions();
-    //this.forecastWeather();
-    //this.forecastTides();
-    //this.forecastWeather();
-    //this.forecastWind();
+  async poll() {
+    Logger.info('Polling');
+    try {
+      this.forecastConditions();
+      this.forecastWeather();
+      this.forecastWaves();
+      this.forecastTides();
+      this.forecastWeather();
+      this.forecastWind();
+    } catch(err) {
+      logger.error(err);
+    }
   }
 
-  forecastConditions() {
-    Surfline.forecastConditions({
+  async start() {
+    // Poll every 10 with a random 0-20 sec delay
+    const delay = Math.floor(Math.random()*5000);
+    setTimeout(() => {
+      setInterval(() => {
+        this.poll();
+      }, 10000);
+      this.poll();
+    }, Math.floor(Math.random()*30000));
+  }
+
+  async forecastConditions() {
+    Logger.info('calling forecast')
+    return Surfline.forecastConditions({
       spotId: this.spotId,
       days: this.daysToForecast,
       intervalHours: this.intervalHours
@@ -144,8 +162,8 @@ class SpotMonitor {
     })
   }
 
-  forecastTides() {
-    Surfline.forecastTides({
+  async forecastTides() {
+    return Surfline.forecastTides({
       spotId: this.spotId,
       days: this.daysToForecast,
       intervalHours: this.intervalHours
@@ -177,17 +195,16 @@ class SpotMonitor {
       if (_.get(data, 'data.data.tides')) {
         // Only store the conditions based on the closest time period
         const tide = findClosetDataPoint(data.data.data.tides);
-        Logger.debug(util.inspect(tide, {showHidden: false, depth: null}))
         if (tide) {
-          this.setGauge(TideMetrics.TEMPERATURE, tide, 'height');
+          this.setGauge(TideMetrics.TIDE_HEIGHT, tide, 'height');
           this.setLoki(tide, 'tide', { commentaryType: 'tide_type' });
         }
       }
     })
   }
 
-  forecastWeather() {
-    Surfline.forecastWeather({
+  async forecastWeather() {
+    return Surfline.forecastWeather({
       spotId: this.spotId,
       days: this.daysToForecast,
       intervalHours: this.intervalHours
@@ -249,8 +266,8 @@ class SpotMonitor {
     })
   }
 
-  forecastWind() {
-    Surfline.forecastWind({
+  async forecastWind() {
+    return Surfline.forecastWind({
       spotId: this.spotId,
       days: this.daysToForecast,
       intervalHours: this.intervalHours
@@ -282,7 +299,7 @@ class SpotMonitor {
       if (_.get(data, 'data.data.wind')) {
         // Only store the conditions based on the closest time period
         const wind = findClosetDataPoint(data.data.data.wind);
-        Logger.debug(util.inspect(wind, {showHidden: false, depth: null}))
+
         if (wind) {
           this.setGauge(WindMetrics.WIND_SPEED, wind, 'speed');
           this.setGauge(WindMetrics.WIND_DIRECTION, wind, 'direction');
@@ -293,8 +310,8 @@ class SpotMonitor {
     })
   }
 
-  forecastWaves() {
-    Surfline.forecastWaves({
+  async forecastWaves() {
+    return Surfline.forecastWaves({
       spotId: this.spotId,
       days: this.daysToForecast,
       intervalHours: this.intervalHours
@@ -332,15 +349,15 @@ class SpotMonitor {
       if (_.get(data, 'data.data.wave')) {
         // Only store the conditions based on the closest time period
         const wave = findClosetDataPoint(data.data.data.wave);
-        Logger.debug(util.inspect(wave, {showHidden: false, depth: null}))
 
+        
         if (wave) {
           this.setGauge(WaveMetrics.SURF_HEIGHT_MIN, wave, 'surf.min');
           this.setGauge(WaveMetrics.SURF_HEIGHT_MAX, wave, 'surf.max');
           this.setGauge(WaveMetrics.SURF_HEIGHT_SCORE, wave, 'surf.optimalScore');
           wave.swells.forEach((swell, index) => {
-            if (swell.height) {
-              let labels = { swellId: index };
+            if (swell.height) {             
+              let labels = { swellId: normalizeSwellId(index) };
               this.setGauge(WaveMetrics.SWELL_HEIGHT, swell, 'height', labels);
               this.setGauge(WaveMetrics.SWELL_PERIOD, swell, 'period', labels);
               this.setGauge(WaveMetrics.SWELL_DIRECTION_MIN, swell, 'directionMin', labels);
@@ -371,17 +388,21 @@ class SpotMonitor {
 }
 
 function findClosetDataPoint(array, min = 0, max = 1) {
-  return _.find(array, obj => {
+  let result;
+  for (let i = 0; i < array.length; i++) {
+    let obj = array[i];
     const timestamp = obj.timestamp;
     if (timestamp) {
       let forecastTime = moment(timestamp * 1000);
       let closetTimestamp = moment.duration(forecastTime.diff(AcceleratedTime.now())).as('hours');
       if (closetTimestamp > min && closetTimestamp < max) {
-        return true;
+        result = obj;
+        break;
       }
     }
-    return false;
-  })
+  }
+
+  return result;
 }
 
 function normalizeRating(string) {
@@ -409,6 +430,28 @@ function normalizeRating(string) {
       break;
     default:
       throw new Exception('Unknown Rating: ' + rating);
+  }
+}
+
+function normalizeSwellId(num) {
+  switch(num) {
+    case 0:
+      return 'primary';
+      break;
+    case 1:
+      return 'secondary';
+      break;
+    case 2:
+      return 'tertiary';
+      break;
+    case 3:
+      return 'quaternary';
+      break;
+    case 4:
+      return 'quinary';
+      break;
+    default:
+      throw new Exception('Unknown swell id: ' + num);
   }
 }
 module.exports = SpotMonitor;

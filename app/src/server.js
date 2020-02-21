@@ -18,27 +18,28 @@ Surfline.getSubregionInfo({ subregionId }).then((subregion) => {
   // Start monitoring each spot in the subregion
   Logger.info(`Monitoring subregion: ${subregion.name}`);
 
-  subregion.spots.forEach(spot => {
+  subregion.spots.forEach((spot, index) => {
     Logger.info(`Monitoring spot: ${spot.name}`);
 
-    const sm = new SpotMonitor({
-      spotId: spot.id,
-      spotName: spot.name,
-      spotLat: spot.lat,
-      spotLon: spot.lon,
-      subregionId: subregion.id,
-      subregionName: subregion.name,
-      cameras: spot.cameras,
-    });
+    // If the spot has got cameras, lets start monitoring it
+    if (spot.cameras.length > 0) {
+      const sm = new SpotMonitor({
+        spotId: spot.id,
+        spotName: spot.name,
+        spotLat: spot.lat,
+        spotLon: spot.lon,
+        subregionId: subregion.id,
+        subregionName: subregion.name,
+        cameras: spot.cameras,
+      });
 
-    setTimeout(() => {
       sm.start();
-    }, 5000)
+    }
   });
 
   // Define express endpoints
-  const server = express();
-  server.get('/metrics', (req, res) => {
+  const app = express();
+  app.get('/metrics', (req, res) => {
     res.set('Content-Type', register.contentType);
     res.end(register.metrics());
   });
@@ -48,5 +49,5 @@ Surfline.getSubregionInfo({ subregionId }).then((subregion) => {
   Logger.info(
     `Server listening to ${port}, metrics exposed on /metrics endpoint`
   );
-  server.listen(port);
+  app.listen(port);
 })
