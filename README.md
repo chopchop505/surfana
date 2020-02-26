@@ -1,6 +1,6 @@
 # About
 
-Simple playground to try together combination of awesome tools: Grafana 6 + Loki + Prometheus.
+Simple project to use Grafana + Loki + Prometheus.
 
 # Start & Stop
 
