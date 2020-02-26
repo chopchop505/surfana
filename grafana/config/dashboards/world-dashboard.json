@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
-  "iteration": 1582319871272,
+  "iteration": 1582325716198,
   "links": [],
   "panels": [
     {
@@ -490,7 +489,7 @@
           "decimals": 2,
           "link": true,
           "linkTooltip": "Go to Spot Dashboard",
-          "linkUrl": "/d/ouwRz-QWz/spot-dashboard&var-spotName=${__cell}?orgId=1",
+          "linkUrl": "/d/ouwRz-QWz/spot-dashboard?orgId=1&var-spotName=${__cell:raw} ",
           "mappingType": 1,
           "pattern": "spotName",
           "thresholds": [],
@@ -510,7 +509,7 @@
           "decimals": 2,
           "link": true,
           "linkTooltip": "Go to Subregion Dashboard",
-          "linkUrl": "/d/aewhVLwWk/subregion-dashboard?orgId=1&var-subregionName=${__cell}",
+          "linkUrl": "/d/aewhVLwWk/subregion-dashboard?orgId=1&var-subregionName=${__cell:raw}&var-spotName=All",
           "mappingType": 1,
           "pattern": "subregionName",
           "thresholds": [],
@@ -670,7 +669,7 @@
       },
       "targets": [
         {
-          "expr": "conditions_rating{timeBlock=\"pm\",subregionName=~\"[[subregionName]]\"}",
+          "expr": "conditions_rating{timeBlock=\"[[timeBlock]]\",subregionName=~\"[[subregionName]]\"}",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -696,9 +695,9 @@
       {
         "allValue": "",
         "current": {
-          "text": "North Shore",
+          "text": "All",
           "value": [
-            "North Shore"
+            "$__all"
           ]
         },
         "datasource": "prometheus",
@@ -710,7 +709,7 @@
         "name": "subregionName",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "All",
             "value": "$__all"
           },
@@ -720,7 +719,7 @@
             "value": "North Orange County"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "North Shore",
             "value": "North Shore"
           }
@@ -739,7 +738,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "am",
           "value": "am"
         },

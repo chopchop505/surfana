@@ -434,24 +434,6 @@ function normalizeRating(string) {
 }
 
 function normalizeSwellId(num) {
-  switch(num) {
-    case 0:
-      return 'primary';
-      break;
-    case 1:
-      return 'secondary';
-      break;
-    case 2:
-      return 'tertiary';
-      break;
-    case 3:
-      return 'quaternary';
-      break;
-    case 4:
-      return 'quinary';
-      break;
-    default:
-      throw new Exception('Unknown swell id: ' + num);
-  }
+  return `swell ${num}`;
 }
 module.exports = SpotMonitor;
