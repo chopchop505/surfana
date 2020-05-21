@@ -40,6 +40,7 @@ class SurflineClient {
   async _apiCall(myUrl, params = null) {
     let response = await http.get(myUrl, { params });
 
+    console.log(util.inspect(response.data, {showHidden: false, depth: null}))
     // If we are seeding the OFFLINE data, write to disk
     if (process.env.SEED_OFFLINE) {
       const dirName = `./data/offline${new URL.URL(myUrl).pathname}`;

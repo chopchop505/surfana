@@ -14,5 +14,5 @@ scrape_configs:
     static_configs:
       - targets: [
         'app-north-shore:3001',
-        'app-north-orange-county:3001'
+        'app-kona-coast:3001'
       ]

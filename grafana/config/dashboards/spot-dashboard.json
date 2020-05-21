@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1582673430278,
+  "iteration": 1590081256209,
   "links": [],
   "panels": [
     {
@@ -846,8 +846,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "Rockpile",
-          "value": "Rockpile"
+          "text": "Magic Sands Beach",
+          "value": "Magic Sands Beach"
         },
         "datasource": "prometheus",
         "definition": "label_values(spotName)",
@@ -857,46 +857,6 @@
         "multi": false,
         "name": "spotName",
         "options": [
-          {
-            "selected": false,
-            "text": "17th St.",
-            "value": "17th St."
-          },
-          {
-            "selected": false,
-            "text": "36th St.",
-            "value": "36th St."
-          },
-          {
-            "selected": false,
-            "text": "40th St.",
-            "value": "40th St."
-          },
-          {
-            "selected": false,
-            "text": "54th St.",
-            "value": "54th St."
-          },
-          {
-            "selected": false,
-            "text": "56th St.",
-            "value": "56th St."
-          },
-          {
-            "selected": false,
-            "text": "56th Street Close-up",
-            "value": "56th Street Close-up"
-          },
-          {
-            "selected": false,
-            "text": "Anderson St.",
-            "value": "Anderson St."
-          },
-          {
-            "selected": false,
-            "text": "Anderson St. Overview",
-            "value": "Anderson St. Overview"
-          },
           {
             "selected": false,
             "text": "Backdoor",
@@ -909,33 +869,8 @@
           },
           {
             "selected": false,
-            "text": "Blackies",
-            "value": "Blackies"
-          },
-          {
-            "selected": false,
-            "text": "Blackies Close-up",
-            "value": "Blackies Close-up"
-          },
-          {
-            "selected": false,
-            "text": "Bolsa Chica Jetties",
-            "value": "Bolsa Chica Jetties"
-          },
-          {
-            "selected": false,
-            "text": "Bolsa Chica Overview",
-            "value": "Bolsa Chica Overview"
-          },
-          {
-            "selected": false,
-            "text": "Bolsa Chica State Beach",
-            "value": "Bolsa Chica State Beach"
-          },
-          {
-            "selected": false,
-            "text": "Bolsa Chica State Beach N.",
-            "value": "Bolsa Chica State Beach N."
+            "text": "Banyans",
+            "value": "Banyans"
           },
           {
             "selected": false,
@@ -944,48 +879,8 @@
           },
           {
             "selected": false,
-            "text": "Corona del Mar",
-            "value": "Corona del Mar"
-          },
-          {
-            "selected": false,
-            "text": "Crystal Cove",
-            "value": "Crystal Cove"
-          },
-          {
-            "selected": false,
             "text": "Gas Chambers",
             "value": "Gas Chambers"
-          },
-          {
-            "selected": false,
-            "text": "Goldenwest",
-            "value": "Goldenwest"
-          },
-          {
-            "selected": false,
-            "text": "HB Pier Southside",
-            "value": "HB Pier Southside"
-          },
-          {
-            "selected": false,
-            "text": "HB Pier, Northside",
-            "value": "HB Pier, Northside"
-          },
-          {
-            "selected": false,
-            "text": "HB Pier, Northside Overview",
-            "value": "HB Pier, Northside Overview"
-          },
-          {
-            "selected": false,
-            "text": "HB Pier, Southside Overview",
-            "value": "HB Pier, Southside Overview"
-          },
-          {
-            "selected": false,
-            "text": "HB Southside",
-            "value": "HB Southside"
           },
           {
             "selected": false,
@@ -994,18 +889,8 @@
           },
           {
             "selected": false,
-            "text": "Hultin's",
-            "value": "Hultin's"
-          },
-          {
-            "selected": false,
-            "text": "Huntington St. Overview",
-            "value": "Huntington St. Overview"
-          },
-          {
-            "selected": false,
-            "text": "Huntington State Beach",
-            "value": "Huntington State Beach"
+            "text": "Honl's",
+            "value": "Honl's"
           },
           {
             "selected": false,
@@ -1014,8 +899,8 @@
           },
           {
             "selected": false,
-            "text": "Kaena Point",
-            "value": "Kaena Point"
+            "text": "Kahalu'u Bay",
+            "value": "Kahalu'u Bay"
           },
           {
             "selected": false,
@@ -1034,48 +919,13 @@
           },
           {
             "selected": false,
-            "text": "Lower Jetties",
-            "value": "Lower Jetties"
+            "text": "Lyman's",
+            "value": "Lyman's"
           },
           {
-            "selected": false,
-            "text": "Mokuleia",
-            "value": "Mokuleia"
-          },
-          {
-            "selected": false,
-            "text": "Newland St.",
-            "value": "Newland St."
-          },
-          {
-            "selected": false,
-            "text": "Newport Beach ",
-            "value": "Newport Beach "
-          },
-          {
-            "selected": false,
-            "text": "Newport Beach Southside",
-            "value": "Newport Beach Southside"
-          },
-          {
-            "selected": false,
-            "text": "Newport Jetties",
-            "value": "Newport Jetties"
-          },
-          {
-            "selected": false,
-            "text": "Newport Pier, Northside",
-            "value": "Newport Pier, Northside"
-          },
-          {
-            "selected": false,
-            "text": "Newport Pier, Southside",
-            "value": "Newport Pier, Southside"
-          },
-          {
-            "selected": false,
-            "text": "Newport Point",
-            "value": "Newport Point"
+            "selected": true,
+            "text": "Magic Sands Beach",
+            "value": "Magic Sands Beach"
           },
           {
             "selected": false,
@@ -1099,26 +949,6 @@
           },
           {
             "selected": false,
-            "text": "Ray Bay",
-            "value": "Ray Bay"
-          },
-          {
-            "selected": false,
-            "text": "River Jetties",
-            "value": "River Jetties"
-          },
-          {
-            "selected": false,
-            "text": "River Jetties Overview",
-            "value": "River Jetties Overview"
-          },
-          {
-            "selected": false,
-            "text": "River Jetties South",
-            "value": "River Jetties South"
-          },
-          {
-            "selected": true,
             "text": "Rockpile",
             "value": "Rockpile"
           },
@@ -1134,21 +964,6 @@
           },
           {
             "selected": false,
-            "text": "Seal Beach Jetty",
-            "value": "Seal Beach Jetty"
-          },
-          {
-            "selected": false,
-            "text": "Seal Beach Pier, Northside",
-            "value": "Seal Beach Pier, Northside"
-          },
-          {
-            "selected": false,
-            "text": "Seal Beach Pier, Southside",
-            "value": "Seal Beach Pier, Southside"
-          },
-          {
-            "selected": false,
             "text": "Sunset Beach",
             "value": "Sunset Beach"
           },
@@ -1156,16 +971,6 @@
             "selected": false,
             "text": "Sunset Beach Closeup",
             "value": "Sunset Beach Closeup"
-          },
-          {
-            "selected": false,
-            "text": "Surfside",
-            "value": "Surfside"
-          },
-          {
-            "selected": false,
-            "text": "The Wedge",
-            "value": "The Wedge"
           },
           {
             "selected": false,
@@ -1207,8 +1012,8 @@
       {
         "allValue": null,
         "current": {
-          "text": "https://camstills.cdn-surfline.com/wc-fiftyfournewport/latest_small.jpg",
-          "value": "https://camstills.cdn-surfline.com/wc-fiftyfournewport/latest_small.jpg"
+          "text": "https://camstills.cdn-surfline.com/hi-magicsbeach/latest_small.jpg",
+          "value": "https://camstills.cdn-surfline.com/hi-magicsbeach/latest_small.jpg"
         },
         "datasource": "postgres",
         "definition": "select still_url from cameras where spot_name='[[spotName]]'",
@@ -1220,8 +1025,8 @@
         "options": [
           {
             "selected": true,
-            "text": "https://camstills.cdn-surfline.com/wc-fiftyfournewport/latest_small.jpg",
-            "value": "https://camstills.cdn-surfline.com/wc-fiftyfournewport/latest_small.jpg"
+            "text": "https://camstills.cdn-surfline.com/hi-magicsbeach/latest_small.jpg",
+            "value": "https://camstills.cdn-surfline.com/hi-magicsbeach/latest_small.jpg"
           }
         ],
         "query": "select still_url from cameras where spot_name='[[spotName]]'",
@@ -1238,8 +1043,9 @@
       {
         "allValue": null,
         "current": {
-          "text": "https://camrewinds.cdn-surfline.com/hi-rockpile/hi-rockpile.1500.2020-02-24.mp4",
-          "value": "https://camrewinds.cdn-surfline.com/hi-rockpile/hi-rockpile.1500.2020-02-24.mp4"
+          "selected": true,
+          "text": "https://camrewinds.cdn-surfline.com/hi-magicsbeach/hi-magicsbeach.1600.2020-05-20.mp4",
+          "value": "https://camrewinds.cdn-surfline.com/hi-magicsbeach/hi-magicsbeach.1600.2020-05-20.mp4"
         },
         "datasource": "postgres",
         "definition": "select rewind_clip from cameras  where spot_name='[[spotName]]'",
@@ -1263,8 +1069,9 @@
       {
         "allValue": null,
         "current": {
-          "text": "https://cams.cdn-surfline.com/cdn-wc/hi-rockpile/playlist.m3u8",
-          "value": "https://cams.cdn-surfline.com/cdn-wc/hi-rockpile/playlist.m3u8"
+          "selected": true,
+          "text": "https://cams.cdn-surfline.com/cdn-wc/hi-magicsbeach/playlist.m3u8",
+          "value": "https://cams.cdn-surfline.com/cdn-wc/hi-magicsbeach/playlist.m3u8"
         },
         "datasource": "postgres",
         "definition": "select stream_url from cameras where spot_name='[[spotName]]'",

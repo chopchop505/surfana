@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
-  "iteration": 1582324811743,
+  "iteration": 1589993643252,
   "links": [],
   "panels": [
     {
@@ -823,7 +822,7 @@
       "id": 180,
       "panels": [],
       "repeat": null,
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 4,
       "scopedVars": {
         "spotName": {
@@ -847,7 +846,7 @@
       "id": 181,
       "mode": "html",
       "options": {},
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 2,
       "repeatedByRow": true,
       "scopedVars": {
@@ -875,7 +874,7 @@
       "id": 182,
       "mode": "html",
       "options": {},
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 171,
       "repeatedByRow": true,
       "scopedVars": {
@@ -902,7 +901,7 @@
       "id": 183,
       "mode": "html",
       "options": {},
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 167,
       "repeatedByRow": true,
       "scopedVars": {
@@ -929,7 +928,7 @@
       "id": 184,
       "mode": "html",
       "options": {},
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 169,
       "repeatedByRow": true,
       "scopedVars": {
@@ -999,7 +998,7 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 118,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1083,7 +1082,7 @@
       "id": 186,
       "mode": "html",
       "options": {},
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 144,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1153,7 +1152,7 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 117,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1207,7 +1206,7 @@
       "id": 188,
       "mode": "html",
       "options": {},
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 176,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1234,7 +1233,7 @@
       "id": 189,
       "mode": "html",
       "options": {},
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 145,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1303,7 +1302,7 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 15,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1358,7 +1357,7 @@
       "id": 191,
       "mode": "html",
       "options": {},
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 174,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1428,7 +1427,7 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 179,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1464,37 +1463,37 @@
       "valueMaps": [
         {
           "op": "=",
-          "text": "POOR",
+          "text": "Poor",
           "value": "1"
         },
         {
           "op": "=",
-          "text": "POOR_TO_FAIR",
+          "text": "Poor to Fair",
           "value": "2"
         },
         {
           "op": "=",
-          "text": "FAIR",
+          "text": "Fair",
           "value": "3"
         },
         {
           "op": "=",
-          "text": "FAIR_TO_GOOD",
+          "text": "Fair to Good",
           "value": "4"
         },
         {
           "op": "=",
-          "text": "GOOD",
+          "text": "Good",
           "value": "5"
         },
         {
           "op": "=",
-          "text": "GOOD_TO_EPIC",
+          "text": "Good to Epic",
           "value": "6"
         },
         {
           "op": "=",
-          "text": "7",
+          "text": "Epic",
           "value": "EPIC"
         }
       ],
@@ -1512,7 +1511,7 @@
       "id": 193,
       "mode": "html",
       "options": {},
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 127,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1581,7 +1580,7 @@
           "to": "null"
         }
       ],
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 116,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1636,7 +1635,7 @@
       "id": 195,
       "mode": "markdown",
       "options": {},
-      "repeatIteration": 1582324811743,
+      "repeatIteration": 1589993643252,
       "repeatPanelId": 178,
       "repeatedByRow": true,
       "scopedVars": {
@@ -1661,7 +1660,6 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
           "text": "North Shore",
           "value": "North Shore"
         },
@@ -1675,8 +1673,8 @@
         "options": [
           {
             "selected": false,
-            "text": "North Orange County",
-            "value": "North Orange County"
+            "text": "Hawaii Kona",
+            "value": "Hawaii Kona"
           },
           {
             "selected": true,

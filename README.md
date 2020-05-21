@@ -8,8 +8,9 @@ Simple project to aggregate surf data using Grafana + Loki + Prometheus.
 # Start
 git clone https://github.com/chopchop505/surfana
 cd surfana
-docker-compose up --force-recreate
-
+docker-compose build --no-cache
+docker-compose up --force-recreate --renew-anon-volumes
+```
 # Stop
 ^C
 docker-compose down
